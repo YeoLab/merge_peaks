@@ -1,0 +1,13 @@
+#!/usr/bin/env idr.cwl
+
+samples:
+  - class: File
+    path: /home/bay001/projects/codebase/merge_peaks/data/pipeline_outputs/204_01.basedon_204_01.peaks.l2inputnormnew.bed.full.compressed2.bed.full.annotated_proxdist.entropy.bed
+  - class: File
+    path: /home/bay001/projects/codebase/merge_peaks/data/pipeline_outputs/204_02.basedon_204_02.peaks.l2inputnormnew.bed.full.compressed2.bed.full.annotated_proxdist.entropy.bed
+
+inputFileType: bed
+rank: 5
+peakMergeMethod: max
+plot: true
+outputFile: IDR.out
