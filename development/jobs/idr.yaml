@@ -10,4 +10,4 @@ inputFileType: bed
 rank: 5
 peakMergeMethod: max
 plot: true
-outputFile: IDR.out
+outputFile: 204.01v02.IDR.out

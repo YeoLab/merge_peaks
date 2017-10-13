@@ -1,3 +1,11 @@
+#!/usr/bin/env perl
+
+# Description: previously run_and_parse_idr.pl, this was split into:
+#              run_IDR (cwltool) and parse_IDR scripts.
+#              Note: this was originally run on rep1,rep2 and rep2,rep1.
+#              Therefore the 'parsing' is only really done on file1.
+# Author: Eric Van Nostrand
+
 use warnings;
 use strict;
 
@@ -5,7 +13,8 @@ my $hashing_value = 10000;
 
 my $file1 = $ARGV[0];
 my $outfi = $ARGV[1];
-my $parsed_out = $outfi.".parsed";
+my $parsed_out = $ARGV[2];
+# my $parsed_out = $outfi.".parsed";
 
 my %idr_cutoffs = ("0.001" => "1000", "0.005" => "955", "0.01" => "830", "0.02" => "705", "0.03" => "632", "0.04" => "580", "0.05" => "540", "0.06" => "507", "0.07" => "479", "0.08" => "455", "0.09" => "434", "0.1" => "415", "0.2" => "290", "0.3" => "217", "0.4" => "165", "0.5" => "125", "1" => "0");
 

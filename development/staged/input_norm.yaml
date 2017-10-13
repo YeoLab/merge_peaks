@@ -1,0 +1,13 @@
+#!/usr/bin/env input_norm.cwl
+
+peaks:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_01_RBFOX2.merged.r2.peaks.bed
+ipBam:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_01_RBFOX2.merged.r2.bam
+inputBam:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+out: 204_01_RBFOX2.merged.r2.peaks.inputnorm.bed
+outFull: 204_01_RBFOX2.merged.r2.peaks.inputnorm.bed.full

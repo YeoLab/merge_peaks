@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-idr.yaml
+mapped_read_num.yaml

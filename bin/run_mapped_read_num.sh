@@ -1,0 +1,1 @@
+../development/jobs/run_mapped_read_num.sh

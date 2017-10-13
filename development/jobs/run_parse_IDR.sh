@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-idr.yaml
+parse_IDR.yaml

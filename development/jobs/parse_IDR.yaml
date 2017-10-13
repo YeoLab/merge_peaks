@@ -1,0 +1,11 @@
+#!/usr/bin/env parse_IDR.cwl
+
+inputFile:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_01.basedon_204_01.peaks.l2inputnormnew.bed.full.compressed2.bed.full.annotated_proxdist.entropy
+
+outputFile:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204.01v02.IDR.out
+
+parsedFile: 204.01v02.IDR.out.parsed
