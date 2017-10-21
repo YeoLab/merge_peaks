@@ -1,0 +1,7 @@
+#!/usr/bin/env compress_l2foldenrpeakfi_for_replicate_overlapping_bedformat.cwl
+
+inputFile:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/pipeline_outputs/204_02.RBFOX2.inputnorm.ericsversioncwl.bed
+
+compressedFile: 204_02.RBFOX2.inputnorm.ericsversioncwl.bed.compressed.bed

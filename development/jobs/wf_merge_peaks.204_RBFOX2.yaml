@@ -1,0 +1,81 @@
+#!/usr/bin/env wf_merge_peaks.cwl
+
+rep1ClipBam:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_01_RBFOX2.merged.r2.bam
+rep1InputBam:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+rep1PeaksBed:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_01_RBFOX2.merged.r2.peaks.bed
+
+rep2ClipBam:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_02_RBFOX2.merged.r2.bam
+rep2InputBam:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+rep2PeaksBed:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_02_RBFOX2.merged.r2.peaks.bed
+
+### POSSIBLE TEMPORARY INTERMEDIATE OUTPUTS
+
+rep1clipReadNum: 204_01.clip.readnum
+
+rep1inputReadNum: 204_01.input.readnum
+
+rep1inputNormed: 204_01.uncompressed.bed
+
+rep1compressed: 204_01.compressed.bed
+
+rep1compressedFull: 204_01.compressed.bed.full
+
+rep1entropyOutput: 204_01.compressed.bed.entropy
+
+rep1entropyExcessReadsOutput: 204_01.compressed.bed.entropy.excessreads
+
+rep2clipReadNum: 204_02.clip.readnum
+
+rep2inputReadNum: 204_02.input.readnum
+
+rep2inputNormed: 204_02.uncompressed.bed
+
+rep2compressed: 204_02.compressed.bed
+
+rep2compressedFull: 204_02.compressed.bed.full
+
+rep2entropyOutput: 204_02.compressed.bed.entropy
+
+rep2entropyExcessReadsOutput: 204_02.compressed.bed.entropy.excessreads
+
+### IDR PARAMS
+
+idrInputFileType: bed
+
+idrRank: 5
+
+idrPeakMergeMethod: max
+
+idrPlot: true
+
+idrOutput: 204.01v02.idr.out
+
+idrOutputBed: 204.01v02.idr.out.bed
+
+### POST PROCESSING AFTER IDR  (ALSO TEMPORARY?)
+
+idrInputNormRep1Bed: 204.01v02.IDR.out.IDRpeaks_inputnorm.01.bed
+
+idrInputNormRep2Bed: 204.01v02.IDR.out.IDRpeaks_inputnorm.02.bed
+
+rep1ReproducingPeaksFullOutput: 204.01v02.IDR.out.0102merged.01.full
+
+rep2ReproducingPeaksFullOutput: 204.01v02.IDR.out.0102merged.02.full
+
+### FINAL OUTPUTS
+
+mergedPeakBed: 204.01v02.IDR.out.0102merged.bed
+
+mergedPeakCustomBed: 204.01v02.IDR.out.0102merged.custombed

@@ -1,0 +1,15 @@
+#!/usr/bin/env overlap_peakfi_with_bam_PE.cwl
+
+experimentBamFile:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_01_RBFOX2.merged.r2.bam
+inputBamFile:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+peakFile:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/204_01_RBFOX2.merged.r2.peaks.bed
+mappedReadNumFile:
+  class: File
+  path: /home/bay001/projects/codebase/merge_peaks/data/rbfox2.txt.mapped_read_num
+outputFile: 204_01.RBFOX2.inputnorm.ericsversioncwl.bed

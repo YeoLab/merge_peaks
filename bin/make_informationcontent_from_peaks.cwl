@@ -1,0 +1,1 @@
+../development/make_informationcontent_from_peaks.cwl

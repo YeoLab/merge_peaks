@@ -8,26 +8,26 @@ baseCommand: [make_informationcontent_from_peaks.pl]
 
 inputs:
   inputFile:
-    type: string
+    type: File
     inputBinding:
       position: 1
   clipReadNum:
     type: File
     inputBinding:
       position: 2
-    label: "clip readnum file"
-    doc: "clip readnum file"
+    label: "clip readnum number FILE"
+    doc: "clip readnum number FILE"
   inputReadNum:
     type: File
     inputBinding:
       position: 3
-    label: "input readnum file"
-    doc: "input readnum file"
-  entropyOutFile:
+    label: "input readnum number FILE"
+    doc: "input readnum number FILE"
+  entropyOutFileName:
     type: string
     inputBinding:
       position: 4
-  excessReadsOutFile:
+  excessReadsOutFileName:
     type: string
     inputBinding:
       position: 5
@@ -35,8 +35,8 @@ outputs:
   entropyOutFile:
     type: File
     outputBinding:
-      glob: $(inputs.entropyOutFile)
+      glob: $(inputs.entropyOutFileName)
   excessReadsOutFile:
     type: File
     outputBinding:
-      glob: $(inputs.excessReadsOutFile)
+      glob: $(inputs.excessReadsOutFileName)

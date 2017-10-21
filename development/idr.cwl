@@ -39,14 +39,14 @@ inputs:
       position: 5
       prefix: --plot
     default: true
-  outputFile:
+  output:
     type: string
     inputBinding:
       position: 6
       prefix: -o
 
 outputs:
-  output:
+  outputFile:
     type: File
     outputBinding:
-      glob: $(inputs.outputFile)
+      glob: $(inputs.output)

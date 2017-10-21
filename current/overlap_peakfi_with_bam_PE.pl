@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/home/bay001/perl5/perlbrew/perls/perl-5.10.1/bin/perl
 
 use warnings;
 use strict;
@@ -26,34 +26,25 @@ my $inputbamfile = $ARGV[1];
 my $peakfi = $ARGV[2];
 
 
+
+
 my %precalculated_fisher;
 
 my @fi1array = split(/\//,$exptbamfile);
 my @input_fiarray = split(/\//,$inputbamfile);
 
 my %mapped_read_count;
-
-my $expt_readnum_file = $ARGV[3];
-my $input_readnum_file = $ARGV[4];
-
-# $mapped_read_count{"expt"} = $ARGV[3];
-# $mapped_read_count{"input"} = $ARGV[4];
-
-# my $read_num_fi = $ARGV[3];
-open(RN,$expt_readnum_file) || die "no $expt_readnum_file\n";
+my $read_num_fi = $ARGV[3];
+open(RN,$read_num_fi) || die "no $read_num_fi\n";
 for my $line (<RN>) {
     chomp($line);
     next unless ($line);
-    $mapped_read_count{"expt"} = $line;
-}
-close(RN);
-
-# my $read_num_fi = $ARGV[3];
-open(RN,$input_readnum_file) || die "no $input_readnum_file\n";
-for my $line (<RN>) {
-    chomp($line);
-    next unless ($line);
-    $mapped_read_count{"input"} = $line;
+    my ($shortfi,$num) = split(/\t/,$line);
+    if ($shortfi eq $fi1array[$#fi1array]) {
+        $mapped_read_count{"expt"} = $num;
+    } elsif ($shortfi eq $input_fiarray[$#input_fiarray]) {
+        $mapped_read_count{"input"} = $num;
+    }
 }
 close(RN);
 
@@ -74,7 +65,7 @@ my %peak_read_counts;
 &read_bamfi($exptbamfile,"expt");
 &read_bamfi($inputbamfile,"input");
 
-my $output_fi = $ARGV[5];
+my $output_fi = $ARGV[4];
 
 my $fisher_tmp_fi = $output_fi.".tmp_fisher";
 my $fisher_tmp_fi_out = $output_fi.".tmp_fisher.out";

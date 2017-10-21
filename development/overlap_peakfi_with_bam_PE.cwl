@@ -14,35 +14,47 @@ inputs:
       position: 1
     label: "IP BAM file"
     doc: "IP BAM file"
-    secondaryFiles:
-      - .bai
   inputBamFile:
     type: File
     inputBinding:
       position: 2
     label: "INPUT BAM file"
     doc: "INPUT BAM file"
-    secondaryFiles:
-      - .bai
   peakFile:
     type: File
     inputBinding:
       position: 3
     label: "Peak file"
     doc: "Peak file"
-  mappedReadNumFile:
+  # mappedReadNumFile:
+  #   type: File
+  #   inputBinding:
+  #     position: 4
+  #   label: "mapped_read_num file"
+  #   doc: "mapped_read_num file"
+  exptReadNumFile:
     type: File
-    inputBinding:
-      position: 3
-    label: "mapped_read_num file"
-    doc: "mapped_read_num file"
-  outputFile:
-    type: string
     inputBinding:
       position: 4
+    label: "mapped_read_num"
+    doc: "mapped_read_num"
+  inputReadNumFile:
+    type: File
+    inputBinding:
+      position: 5
+    label: "mapped_read_num"
+    doc: "mapped_read_num"
+  output:
+    type: string
+    inputBinding:
+      position: 6
 
 outputs:
-  output:
+  outputFile:
     type: File
     outputBinding:
-      glob: $(inputs.outputFile)
+      glob: $(inputs.output)
+  outputFullFile:
+    type: File
+    outputBinding:
+      glob: "$(inputs.output).full"

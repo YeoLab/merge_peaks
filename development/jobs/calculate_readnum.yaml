@@ -1,4 +1,4 @@
-#!/usr/bin/env mapped_read_num.cwl
+#!/usr/bin/env calculate_readnum.cwl
 
 bamFile:
   class: File

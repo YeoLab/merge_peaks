@@ -1,39 +1,14 @@
-#!/usr/bin/env perl
-
 use warnings;
 use strict;
 
+my $clip_readnum = $ARGV[1];
+my $input_readnum = $ARGV[2];
+
 my $file = $ARGV[0];
 
-my $expt_readnum_file = $ARGV[1];
-my $input_readnum_file = $ARGV[2];
-
-my $input_readnum;
-my $clip_readnum;
-
-# my $read_num_fi = $ARGV[3];
-open(RN,$expt_readnum_file) || die "no $expt_readnum_file\n";
-for my $line (<RN>) {
-    chomp($line);
-    next unless ($line);
-    $clip_readnum = $line;
-}
-close(RN);
-
-# my $read_num_fi = $ARGV[3];
-open(RN,$input_readnum_file) || die "no $input_readnum_file\n";
-for my $line (<RN>) {
-    chomp($line);
-    next unless ($line);
-    $input_readnum = $line;
-}
-close(RN);
-
-my $entropy_outfi = $ARGV[3];
-# my $entropy_outfi = $file.".entropy";
+my $entropy_outfi = $file.".entropy";
 open(ENT,">$entropy_outfi");
-my $excessreads_outfi = $ARGV[4];
-# my $excessreads_outfi = $file.".excess_reads";
+my $excessreads_outfi = $file.".excess_reads";
 open(READS,">$excessreads_outfi");
 
 print STDERR "doing $file\n";

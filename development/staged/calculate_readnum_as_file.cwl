@@ -8,34 +8,39 @@ baseCommand: [samtools, view]
 
 inputs:
 
-  printMatchingReadCount:
+  countFlag:
     type: boolean
     inputBinding:
       position: 1
       prefix: -c
-    label: "print only the count of matching records"
-    doc: "print only the count of matching records"
     default: true
-  excludeFlags:
+    label: "Print only the count"
+    doc: "Print only the count"
+
+  readFlag:
     type: int
     inputBinding:
       position: 2
       prefix: -F
     default: 4
+    label: "Flag to count only the mapped reads"
+
   bamFile:
     type: File
     inputBinding:
       position: 3
     label: "BAM file"
     doc: "BAM file"
-  outputFile:
+
+  mappedReadNumFile:
     type: string
     inputBinding:
       position: 4
-      prefix: -o
+    label: "mapped readnum file"
+    doc: "mapped readnum file"
 
 outputs:
-  output:
+  outputReadNumFile:
     type: File
     outputBinding:
-      glob: $(inputs.outputFile)
+      glob: $(inputs.mappedReadNumFile)
