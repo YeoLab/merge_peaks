@@ -1,5 +1,5 @@
 # merge_peaks
-Pipeline for using IDR to produce a set of peaks given two replicate eCLIP peaks
+CWL-defined pipeline for using IDR to produce a set of peaks given two replicate eCLIP peaks
 
 # Requires:
 
@@ -9,6 +9,11 @@ Pipeline for using IDR to produce a set of peaks given two replicate eCLIP peaks
     - Statistics::R
 - IDR=2.0.2
 - python=3.4.5
+    - numpy=1.11
+    - pandas=0.20
+    - scipy=0.18
+    - setuptools=27.2
+    - matplotlib=2.0
 - cwl=1.0
 
 # Rough outline of methods:
