@@ -17,8 +17,12 @@ CWL-defined pipeline for using IDR to produce a set of peaks given two replicate
 - cwl=1.0
 
 # Installation:
+- (For YEOLAB: ```module load eclipidrmergepeaks/0.0.2```)
+
+##### For all others:
 - run and source the ```source create_environment.sh``` bash script
-- run and source the ```source run_perlbrew_perl5.10.1.sh``` bash script
+- install perlbrew: https://perlbrew.pl/ (skip if you want to use your system perl)
+- run and source the ```source run_perlbrew_perl5.10.1.sh``` bash script (skip if you want to use your system perl)
 - install perl modules:
     - ```cpan install Statistics::Basic```
     - ```cpan install Statistics::Distributions```
