@@ -1,1 +1,0 @@
-../development/mapped_read_num.cwl

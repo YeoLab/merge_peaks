@@ -1,1 +1,0 @@
-../development/calculate_readnum.cwl

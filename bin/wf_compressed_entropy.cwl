@@ -1,1 +1,0 @@
-../development/wf_compressed_entropy.cwl

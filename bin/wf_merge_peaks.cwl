@@ -1,1 +1,0 @@
-../development/wf_merge_peaks.cwl

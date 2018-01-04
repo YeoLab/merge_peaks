@@ -1,8 +1,0 @@
-#!/usr/bin/env calculate_readnum.cwl
-
-bamFile:
-  class: File
-  path: /home/bay001/projects/codebase/merge_peaks/data/204_01_RBFOX2.merged.r2.bam
-printMatchingReadCount: true
-excludeFlags: 4
-outputFile: 204_01_RBFOX2.merged.r2.bam.mapped_read_num

@@ -1,1 +1,0 @@
-../development/parse_idr_peaks.cwl
