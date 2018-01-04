@@ -143,3 +143,11 @@ This is probably what will be useful.
 - idr.out.bed: output from IDR as a bed file
 - *.custombed: ???
 
+# Notes:
+- The current conda version of perl installed using ```create_environment.sh```
+will install perl v5.22.0, which is different from the version tested on TSCC
+(5.10.1). Since 5.18, there have been slight changes resulting in hash keys
+being accessed in a non-deterministic way. Installing 5.22.0 will result in
+minor changes from the reference, but will otherwise give similar outputs.
+Included is a script ```run_perlbrew_perl5.10.1.sh``` which will attempt to
+install perl 5.10.1, which will give you deterministic results.
