@@ -119,7 +119,8 @@ mergedPeakBedFilename: 204.01v02.IDR.out.0102merged.bed
 mergedPeakCustomBedFilename: 204.01v02.IDR.out.0102merged.custombed
 ```
 # To run the workflow:
-- ./204_RBFOX2.yaml
+- Ensure that the yaml file is accessible and that wf_eclipidrmergepeaks.cwl is in your $PATH.
+- Type: ```./204_RBFOX2.yaml```
 
 # Outputs
 - mergedPeakBedFilename: this is the BED6 file containing reproducible peaks as

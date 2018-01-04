@@ -1,0 +1,7 @@
+
+
+perl versions:  5.10, 5.12, 5.14, 5.16  have deterministic hashes
+
+5.18 started haivng non-deterministic hashes
+
+TSCC system-wide perl is 5.10
