@@ -34,9 +34,9 @@ CWL-defined pipeline for using IDR to produce a set of peaks given two replicate
 - Entropy calculation on CLIP and INPUT read probabilities within each peak for each replicate (make_informationcontent_from_peaks.cwl)
 - Reformat *.full files into *.bed files for each replicate (full_to_bed.cwl)
 - Run IDR on peaks ranked by entropy (idr.cwl)
-- Separate merged IDR peaks based on original replicate peak positions (parse_idr_peaks.cwl)
+- Calculates summary statistics at different IDR cutoffs (parse_idr_peaks.cwl)
 - Normalize CLIP BAM over INPUT using new IDR peak positions (overlap_peakfi_with_bam_PE.cwl)
-- Re-merge peaks (get_reproducing_peaks.cwl)
+- Identifies reproducible peaks within IDR regions (get_reproducing_peaks.cwl)
 
 # Usage:
 (see the example/204_RBFOX2.yaml manifest file for a full example). Below is a description of all fields
@@ -125,6 +125,12 @@ mergedPeakCustomBedFilename: 204.01v02.IDR.out.0102merged.custombed
 # Outputs
 - mergedPeakBedFilename: this is the BED6 file containing reproducible peaks as
 determined by entropy-ordered peaks between two replicates.
+    - chrom
+    - start
+    - end
+    - geomean of the log2 fold changes
+    - minimum of the -log10 p-value between two replicates
+    - strand
 This is probably what will be useful.
 - *.full files: these tabbed outputs have the following columns (in order):
     - chromosome
@@ -142,7 +148,14 @@ This is probably what will be useful.
     - entropy
 - idr.out: output from IDR
 - idr.out.bed: output from IDR as a bed file
-- *.custombed: ???
+- *.custombed: contains individual replicate information. The headers are:
+    - IDR region (entire IDR identified reproducible region)
+    - peak (reproducible peak region)
+    - geomean of the l2fc
+    - rep1 log2 fold change
+    - rep2 log2 fold change
+    - rep1 -log10 pvalue
+    - rep2 -log10 pvalue
 
 # Notes:
 - The current conda version of perl installed using ```create_environment.sh```
@@ -152,3 +165,4 @@ being accessed in a non-deterministic way. Installing 5.22.0 will result in
 minor changes from the reference, but will otherwise give similar outputs.
 Included is a script ```run_perlbrew_perl5.10.1.sh``` which will attempt to
 install perl 5.10.1, which will give you deterministic results.
+- Custombed files are staged for deprecation, we don't usually use this.
