@@ -43,3 +43,6 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.outputFilename)
+
+doc: |
+  returns the

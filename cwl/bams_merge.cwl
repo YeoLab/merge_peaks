@@ -10,24 +10,27 @@ baseCommand:
 
 
 arguments:
-  - $(inputs.bam_rep1.basename)_$(inputs.bam_rep2.basename).merged.bam
+  - $(inputs.rep1_bam.basename)_$(inputs.rep2_bam.basename).merged.bam
 
 
 inputs:
 
-  bam_rep1:
+  rep1_bam:
     type: File
     inputBinding:
       position: 2
 
-  bam_rep1:
+  rep2_bam:
     type: File
     inputBinding:
       position: 3
 
 outputs:
 
-  merged:
+  merged_bam_file:
     type: File
     outputBinding:
-      glob: $(inputs.bam_rep1.basename)_$(inputs.bam_rep2.basename).merged.bam
+      glob: $(inputs.rep1_bam.basename)_$(inputs.rep2_bam.basename).merged.bam
+
+doc: |
+  merges 2 bam files together

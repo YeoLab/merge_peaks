@@ -8,7 +8,7 @@ baseCommand: [overlap_peakfi_with_bam_PE.pl]
 
 
 arguments: [
-  $(inputs.outputprefix).$(inputs.inputnormsuffix).bed
+  $(inputs.outputPrefix).$(inputs.inputNormSuffix).bed
   ]
 
 
@@ -43,24 +43,24 @@ inputs:
       position: -1
 
 
-  outputprefix:
+  outputPrefix:
     type: string
 
-  inputnormsuffix:
+  inputNormSuffix:
     type: string
     default: "inputnormed"
 
 
 outputs:
 
-  inputnormedBed:
+  inputNormedBed:
     type: File
     outputBinding:
       #glob: $(inputs.output)
-      glob: $(inputs.outputprefix).$(inputs.inputnormsuffix).bed
+      glob: $(inputs.outputPrefix).$(inputs.inputNormSuffix).bed
 
-  inputnormedBedfull:
+  inputNormedBedFull:
     type: File
     outputBinding:
       #glob: "$(inputs.output).full"
-      glob: $(inputs.outputprefix).$(inputs.inputnormsuffix).bed.full
+      glob: $(inputs.outputPrefix).$(inputs.inputNormSuffix).bed.full

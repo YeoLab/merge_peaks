@@ -16,8 +16,6 @@ inputs:
       position: 1
       prefix: --samples
 
-
-
   inputFileType:
     type: string
     inputBinding:
@@ -45,9 +43,6 @@ inputs:
       position: 5
       prefix: --plot
     default: true
-
-
-
 
   outputFilename:
     type: string

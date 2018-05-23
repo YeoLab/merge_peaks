@@ -1,5 +1,8 @@
 #!/usr/bin/env cwltool
 
+doc: |
+  Converts a full file into a bed6 formatted file.
+
 cwlVersion: v1.0
 
 class: CommandLineTool

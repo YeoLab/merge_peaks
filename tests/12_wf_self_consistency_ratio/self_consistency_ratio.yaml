@@ -1,0 +1,22 @@
+#!/usr/bin/env eCLIP_self_consistency_ratio
+
+### wf_self_consistency_ratio.cwl ###
+### eCLIP_self_consistency_ratio ###
+
+rep1_bam_file:
+  class: File
+  path: inputs/204_01_RBFOX2.merged.r2.bam
+  
+rep2_bam_file:
+  class: File
+  path: inputs/204_02_RBFOX2.merged.r2.bam
+
+rep1_input_bam_file:
+  class: File
+  path: inputs/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+
+rep2_input_bam_file:
+  class: File
+  path: inputs/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+
+species: hg19

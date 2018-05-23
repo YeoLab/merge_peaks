@@ -1,0 +1,15 @@
+#!/usr/bin/env parse_idr_peaks.cwl
+
+idrFile:
+  class: File
+  path: inputs/idr.out
+  
+entropyFile1:
+  class: File
+  path: inputs/204_01.compressed.bed.entropy.full
+  
+entropyFile2:
+  class: File
+  path: inputs/204_02.compressed.bed.entropy.full
+  
+outputFilename: idr.parsed

@@ -1,0 +1,11 @@
+#!/usr/bin/env idr.cwl
+
+samples:
+  - 
+    class: File
+    path: inputs/204_01.compressed.bed.entropy.bed
+  - 
+    class: File
+    path: inputs/204_02.compressed.bed.entropy.bed
+
+outputFilename: "idr.out"

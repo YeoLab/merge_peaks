@@ -1,0 +1,29 @@
+#!/usr/bin/env get_reproducing_peaks.cwl
+
+rep1_full_in:
+  class: File
+  path: inputs/204_01.inputNormedRound2.bed.full
+  
+rep2_full_in:
+  class: File
+  path: inputs/204_02.inputNormedRound2.bed.full
+  
+rep1_full_output: rep1.full
+  
+rep2_full_output: rep2.full
+  
+output_bed: final_idr_output.bed
+
+output_custombed: custombed.bed
+
+rep1_entropy_file:
+  class: File
+  path: inputs/204_01.compressed.bed.entropy.full
+  
+rep2_entropy_file:
+  class: File
+  path: inputs/204_02.compressed.bed.entropy.full
+  
+idr_file:
+  class: File
+  path: inputs/idr.out

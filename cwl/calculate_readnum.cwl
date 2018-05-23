@@ -49,3 +49,5 @@ outputs:
       #glob: $(inputs.output)
       glob: $(inputs.bamFile.nameroot).readnum
 
+doc: |
+  returns the number of reads inside a *.readnum file

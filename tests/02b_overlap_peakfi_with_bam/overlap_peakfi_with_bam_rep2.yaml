@@ -1,0 +1,22 @@
+#!/usr/bin/env overlap_peakfi_with_bam.cwl
+
+clipBamFile:
+  class: File
+  path: inputs/204_02_RBFOX2.merged.r2.bam
+
+inputBamFile:
+  class: File
+  path: inputs/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+  
+peakFile:
+  class: File
+  path: inputs/204_02_RBFOX2.merged.r2.peaks.bed
+  
+clipReadnum:
+  class: File
+  path: inputs/204_02_RBFOX2.merged.r2.readnum
+  
+inputReadnum:
+  class: File
+  path: inputs/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.readnum
+  

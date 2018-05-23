@@ -1,0 +1,5 @@
+#!/usr/bin/env calculate_readnum.cwl
+
+bamFile: 
+  class: File
+  path: inputs/204_02_RBFOX2.merged.r2.bam

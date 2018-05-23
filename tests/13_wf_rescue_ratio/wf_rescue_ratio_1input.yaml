@@ -1,0 +1,30 @@
+#!/usr/bin/env eCLIP_rescue_ratio_1input
+
+### wf_rescue_ratio_1input.cwl ###
+
+
+rep1_clip_bam_file:
+  class: File
+  path: inputs/204_01_RBFOX2.merged.r2.bam
+
+rep1_clip_peaks_file:
+  class: File
+  path: inputs/204_01_RBFOX2.merged.r2.peaks.bed
+  
+  
+rep2_clip_bam_file:
+  class: File
+  path: inputs/204_02_RBFOX2.merged.r2.bam
+  
+input_bam_file:
+  class: File
+  path: inputs/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+  
+rep2_clip_peaks_file:
+  class: File
+  path: inputs/204_02_RBFOX2.merged.r2.peaks.bed
+
+species: hg19
+
+merged_peaks_bed: 204_RBFOX2_reproducible_peaks.bed
+merged_peaks_custombed: 204_RBFOX2_reproducible_peaks.custombed

@@ -1,1 +1,0 @@
-wf_bam_split_crpc_vs_bam_split_crpc.cwl

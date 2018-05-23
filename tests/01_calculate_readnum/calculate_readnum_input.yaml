@@ -1,0 +1,5 @@
+#!/usr/bin/env calculate_readnum.cwl
+
+bamFile: 
+  class: File
+  path: inputs/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam

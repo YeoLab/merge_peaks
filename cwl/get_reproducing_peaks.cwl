@@ -6,84 +6,88 @@ class: CommandLineTool
 
 baseCommand: [get_reproducing_peaks.pl]
 
-
-
 inputs:
 
 
   # rep1 full out after idr (.01.bed.full or rep1.bed.full)
-  rep1FullIn:
+  rep1_full_in:
     type: File
     inputBinding:
       position: 1
 
   # rep1 full out after idr (.02.bed.full or rep2.bed.full)"
-  rep2FullIn:
+  rep2_full_in:
     type: File
     inputBinding:
       position: 2
 
+  # rep1 full out after this step
+  # rep1FullOutFilename:
+  rep1_full_output:
+    type: string
+    inputBinding:
+      position: 3
+  # rep2 full out after this step
+  # rep2FullOutFilename:
+  rep2_full_output:
+    type: string
+    inputBinding:
+      position: 4
+  # final reproduced peaks?
+  # bedOutFilename:
+  output_bed:
+    type: string
+    inputBinding:
+      position: 5
 
-  rep1Entropy:
+  # customBedOutFilename:
+  output_custombed:
+    type: string
+    inputBinding:
+      position: 6
+
+  # rep1Entropy:
+  rep1_entropy_file:
     type: File
     inputBinding:
       position: 7
 
-  rep2Entropy:
+  # rep2Entropy:
+  rep2_entropy_file:
     type: File
     inputBinding:
       position: 8
 
-  idr:
+  idr_file:
     type: File
     inputBinding:
       position: 9
 
 
 
-  # rep1 full out after this step
-  rep1FullOutFilename:
-    type: string
-    inputBinding:
-      position: 3
-  # rep2 full out after this step
-  rep2FullOutFilename:
-    type: string
-    inputBinding:
-      position: 4
-  # final reproduced peaks?
-  bedOutFilename:
-    type: string
-    inputBinding:
-      position: 5
 
-
-  customBedOutFilename:
-    type: string
-    inputBinding:
-      position: 6
 
 
 
 outputs:
 
 
-  rep1FullOut:
+  rep1_full_output_file:
     type: File
     outputBinding:
-      glob: $(inputs.rep1FullOutFilename)
-  rep2FullOut:
+      glob: $(inputs.rep1_full_output)
+  rep2_full_output_file:
     type: File
     outputBinding:
-      glob: $(inputs.rep2FullOutFilename)
-  bedOut:
+      glob: $(inputs.rep2_full_output)
+  output_bed_file:
     type: File
     outputBinding:
-      glob: $(inputs.bedOutFilename)
+      glob: $(inputs.output_bed)
 
 
-  customBedOut:
+  output_custombed_file:
     type: File
     outputBinding:
-      glob: $(inputs.customBedOutFilename)
+      glob: $(inputs.output_custombed)
 

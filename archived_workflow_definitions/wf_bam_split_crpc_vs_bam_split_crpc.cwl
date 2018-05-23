@@ -63,20 +63,6 @@ steps:
     in:
       bam_rep1: bam_rep1_split/split1
       bam_rep1: bam_rep1_split/split2
-
-#      outputprefixRep1: outputprefixRep1
-#      outputprefixRep2: outputprefixRep2
-#      inputnormsuffixRep1: inputnormsuffixRep1
-#      inputnormsuffixRep2: inputnormsuffixRep2
-#      idrOutputFilename: idrOutputFilename
-#      idrOutputBedFilename: idrOutputBedFilename
-#      idrInputNormRep1BedFilename: idrInputNormRep1BedFilename
-#      idrInputNormRep2BedFilename: idrInputNormRep2BedFilename
-#      rep1ReproducingPeaksFullOutputFilename: rep1ReproducingPeaksFullOutputFilename
-#      rep2ReproducingPeaksFullOutputFilename: rep2ReproducingPeaksFullOutputFilename
-#      mergedPeakBedFilename: mergedPeakBedFilename
-#      mergedPeakCustomBedFilename: mergedPeakCustomBedFilename
-
     out:
       - reproducing_peaks_count
 
@@ -85,20 +71,6 @@ steps:
     in:
       bam_rep2: bam_rep2_split/split1
       bam_rep2: bam_rep2_split/split2
-
-#      outputprefixRep1: outputprefixRep1
-#      outputprefixRep2: outputprefixRep2
-#      inputnormsuffixRep1: inputnormsuffixRep1
-#      inputnormsuffixRep2: inputnormsuffixRep2
-#      idrOutputFilename: idrOutputFilename
-#      idrOutputBedFilename: idrOutputBedFilename
-#      idrInputNormRep1BedFilename: idrInputNormRep1BedFilename
-#      idrInputNormRep2BedFilename: idrInputNormRep2BedFilename
-#      rep1ReproducingPeaksFullOutputFilename: rep1ReproducingPeaksFullOutputFilename
-#      rep2ReproducingPeaksFullOutputFilename: rep2ReproducingPeaksFullOutputFilename
-#      mergedPeakBedFilename: mergedPeakBedFilename
-#      mergedPeakCustomBedFilename: mergedPeakCustomBedFilename
-
     out:
       - reproducing_peaks_count
 
