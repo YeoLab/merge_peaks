@@ -17,7 +17,7 @@ CWL-defined pipeline for using IDR to produce a set of peaks given two replicate
 - cwl=1.0
 
 # Installation:
-- (For YEOLAB: ```module load eclipidrmergepeaks/0.0.2```)
+- (For YEOLAB: ```module load eclipidrmergepeaks/0.0.5```)
 
 ##### For all others:
 - run and source the ```source create_environment.sh``` bash script
@@ -44,86 +44,58 @@ required to be filled out in the manifest file:
 
 BAM file containing the merged-barcode (read 2 only) PCR-deduped CLIP reads mapping to the genome for Replicate 1.
 ```
-rep1ClipBam:
+rep1_clip_bam_file:
   class: File
   path: 204_01_RBFOX2.merged.r2.bam
 ```
 
 BAM file containing the merged-barcode (read 2 only) PCR-deduped INPUT reads mapping to the genome for Replicate 1.
 ```
-rep1InputBam:
+rep1_input_bam_file:
   class: File
   path: RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
 ```
 
-BED file containing the called peaks for Replicate 1
+BED file containing the called peak clusters for Replicate 1 <b>Output from CLIPPER!</b>. This pipeline will perform input norm internally for you.
 ```
-rep1PeaksBed:
+rep1_peaks_bed_file:
   class: File
   path: 204_01_RBFOX2.merged.r2.peaks.bed
 ```
 
 BAM file containing the merged-barcode (read 2 only) PCR-deduped CLIP reads mapping to the genome for Replicate 2.
 ```
-rep2ClipBam:
+rep2_clip_bam_file:
   class: File
   path: 204_02_RBFOX2.merged.r2.bam
 ```
 
 BAM file containing the merged-barcode (read 2 only) PCR-deduped INPUT reads mapping to the genome for Replicate 2.
 ```
-rep2InputBam:
+rep2_input_bam_file:
   class: File
   path: RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
 ```
 
-BED file containing the called peaks for Replicate 2
+BED file containing the called peak clusters for Replicate 2 <b>Output from CLIPPER!</b>. This pipeline will perform input norm internally for you.
 ```
-rep2PeaksBed:
+rep2_peaks_bed_file:
   class: File
   path: 204_02_RBFOX2.merged.r2.peaks.bed
 ```
 
-These parameters describe the prefix attached to each replicate input normalization (step 1 in methods)
-```
-###
-outputprefixRep1: "204_01"
-outputprefixRep2: "204_01"
-```
-
-These parameters describe the file output names associated with IDR outputs (step 5 in methods)
-```
-###
-idrOutputFilename: 204.01v02.idr.out
-idrOutputBedFilename: 204.01v02.idr.out.bed
-```
-
-These parameters describe the file output names associated with de-merged IDR outputs (step 6 in methods)
-```
-### POST PROCESSING AFTER IDR  (ALSO TEMPORARY?)
-idrInputNormRep1BedFilename: 204.01v02.IDR.out.idrpeaks_inputnormed.01.bed
-idrInputNormRep2BedFilename: 204.01v02.IDR.out.idrpeaks_inputnormed.02.bed
-```
-
-These parameters describe the file output names associated with de-merged, input normalized FULL files (step 7 in methods)
-```
-### MERGE PEAKS
-rep1ReproducingPeaksFullOutputFilename: 204.01v02.IDR.out.0102merged.01.full
-rep2ReproducingPeaksFullOutputFilename: 204.01v02.IDR.out.0102merged.02.full
-```
-
-These parameters describe the file output names associated with appropriately re-merged peak files.
 ```
 ### FINAL OUTPUTS
-mergedPeakBedFilename: 204.01v02.IDR.out.0102merged.bed
-mergedPeakCustomBedFilename: 204.01v02.IDR.out.0102merged.custombed
+merged_peaks_custombed: 204.01v02.IDR.out.0102merged.bed
+merged_peaks_bed: 204.01v02.IDR.out.0102merged.custombed
+
 ```
 # To run the workflow:
-- Ensure that the yaml file is accessible and that wf_eclipidrmergepeaks.cwl is in your $PATH.
+- Ensure that the yaml file is accessible and that wf_get_reproducible_eclip_peaks.cwl is in your $PATH.
 - Type: ```./204_RBFOX2.yaml```
 
 # Outputs
-- mergedPeakBedFilename: this is the BED6 file containing reproducible peaks as
+- merged_peaks_bed: this is the BED6 file containing reproducible peaks as
 determined by entropy-ordered peaks between two replicates.
     - chrom
     - start
@@ -158,7 +130,7 @@ This is probably what will be useful.
     - rep2 -log10 pvalue
 
 # Notes:
-- The current conda version of perl installed using ```create_environment.sh```
+- The current conda version of perl installed using ```create_environment_merge_peaks.sh```
 will install perl v5.22.0, which is different from the version tested on TSCC
 (5.10.1). Since 5.18, there have been slight changes resulting in hash keys
 being accessed in a non-deterministic way. Installing 5.22.0 will result in

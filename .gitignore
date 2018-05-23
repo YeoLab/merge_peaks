@@ -106,3 +106,4 @@ venv.bak/
 # misc
 bin/idr-2.0.2
 source_me.sh
+archived*
