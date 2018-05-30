@@ -305,13 +305,14 @@ sub read_bamfi {
 	my $r1_start = $tmp_r1[3];
 
 	my $frag_strand;
-	if ($r1sam_flag == 147) {
-	    $frag_strand = "-";
-	} elsif ($r1sam_flag == 163) {
-	    $frag_strand = "+";
-	} else {
-	    print STDERR "R1 strand error $r1sam_flag\n";
-	}
+    if ($r1sam_flag == 147 || $r1sam_flag == 16) {
+       $frag_strand = "-";
+    } elsif ($r1sam_flag == 163 || $r1sam_flag == 0) {
+       $frag_strand = "+";
+    } else {
+       print STDERR "R1 strand error $r1sam_flag\n";
+    }
+
 
 	
 	my @read_regions = &parse_cigar_string($r1_start,$r1_cigar,$r1_chr,$frag_strand);

@@ -23,7 +23,7 @@ my $R = Statistics::R->new() ;
 # STAR sam output (inc. samtools view .bam) is 1-based
 
 unless ($ARGV[0] && $ARGV[1] && $ARGV[2] && $ARGV[3] && $ARGV[4]) {
-    print STDERR "usage: perl overlap_peakfi_with_bam_PE.pl Experiment_bam_file Input_bam_file Peak_file Mapped_read_num_file Output_file\n\n";
+    print STDERR "usage: perl overlap_peakfi_with_bam_PE.pl Experiment_bam_file Input_bam_file Peak_file Mapped_ip_read_num_file Mapped_input_read_num_file Output_file\n\n";
     exit;
 }
 

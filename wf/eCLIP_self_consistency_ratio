@@ -18,7 +18,7 @@ set -o pipefail
 
 
 CWLRUNNER=cwltorq # either: cwltool cwltoil or cwltorq
-WORKFLOW=wf_get_reproducible_eclip_peaks # the prefix of the workflow cwl (without .cwl extension)
+WORKFLOW=wf_self_consistency_ratio # the prefix of the workflow cwl (without .cwl extension)
 
 PIPELINE=IDR  # workflow prefix
 PIPELINEVERSION=0.0.3  # workflow version

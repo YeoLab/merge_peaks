@@ -17,7 +17,7 @@ my %idr_cutoffs = ("0.001" => "1000", "0.005" => "955", "0.01" => "830", "0.02" 
 
 #my $bamfile1 = "testoutput.bed.204_01bam";
 #my $bamfile2 = "testoutput.bed.204_02bam";
-my %peak_info;
+
 # my $rep1_inputnorm_output_full = $idr_file.".IDRpeaks_inputnorm.01.bed.full";
 # my $rep2_inputnorm_output_full = $idr_file.".IDRpeaks_inputnorm.02.bed.full";
 
@@ -48,16 +48,16 @@ my $file2 = $ARGV[7];
 my %idrregion2peaks;
 &parse_file($file1);
 &parse_file($file2);
-
+my %peak_info;
 #&parse_bam_file($rep1_inputnorm_output_full);
 #&parse_bam_file($rep2_inputnorm_output_full);
 &parse_inputnorm_fullfile($rep1_inputnorm_output_full);
 &parse_inputnorm_fullfile($rep2_inputnorm_output_full);
 
 
-
 my $count_signif=0;
 for my $idrregion (keys %idrregion2peaks) {
+#    print "idr $idrregion\n";
     my %peak_geommean;
     for my $peak (keys %{$idrregion2peaks{$idrregion}}) {
         my $geometric_mean = log(sqrt( (2 ** $peak_info{$peak}{$rep1_inputnorm_output_full}{l2fc}) * (2 ** $peak_info{$peak}{$rep2_inputnorm_output_full}{l2fc}) ))/log(2);
@@ -224,6 +224,7 @@ sub parse_file {
         my $entropy = $tmp[12];
         my $l2fc = $tmp[11];
         my $l10p = $tmp[10];
+
         next unless ($l2fc >= 3 && $l10p >= 3);
 #       print "chr $chr start $start stop $stop str $str l2 $l2fc l10p $l10p ent $entropy\n";
 
@@ -244,6 +245,7 @@ sub parse_file {
                 $overlapping_idrs{$idr_peak} = $iidr;
             }
         }
+	
 	if (scalar(keys %overlapping_idrs) > 0) {
 	    
 	    if (scalar(keys %overlapping_idrs) > 1) {
@@ -253,6 +255,7 @@ sub parse_file {
 	    my @sorted_idr = keys %overlapping_idrs;
 	    my $overlapping_idrpeak = $sorted_idr[0];	    
 	    my ($ichr,$ipos,$istr,$iidr) = split(/\:/,$overlapping_idrpeak);
+
 	    if ($iidr >= $idr_cutoffs{$idr_cutoff}) {
 		$idrregion2peaks{$overlapping_idrpeak}{$chr.":".$start."-".$stop.":".$str} = 1;
 	    }
@@ -264,15 +267,7 @@ sub parse_file {
     close(F);
 }
 
-sub min {
-    my $x = shift;
-    my $y = shift;
-    if ($x < $y) {
-	return($x);
-    } else {
-	return($y);
-    }
-}
+
 
 
 sub parse_idr_file {
@@ -281,20 +276,31 @@ sub parse_idr_file {
     for my $line (<ID>) {
 	chomp($line);
 	my @tmp = split(/\t/,$line);
-
+	
 	my $chr = $tmp[0];
 	my $start = $tmp[1];
 	my $stop = $tmp[2];
 	my $str = $tmp[5];
-
+	
 	my $idr_score = $tmp[4];
-
+	
 	my $x = int($start / $hashing_value);
 	my $y = int($stop / $hashing_value);
-
+        
 	for my $i ($x..$y) {
 	    push @{$idr_output{$chr}{$str}{$i}},$chr.":".$start."-".$stop.":".$str.":".$idr_score;
 	}
     }
     close(ID);
+}
+
+
+sub min {
+    my $x = shift;
+    my $y = shift;
+    if ($x < $y) {
+	return($x);
+    } else {
+	return($y);
+    }
 }
