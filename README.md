@@ -56,7 +56,7 @@ rep1_input_bam_file:
   path: RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
 ```
 
-BED file containing the called peak clusters for Replicate 1 <b>Output from CLIPPER!</b>. This pipeline will perform input norm internally for you.
+BED file containing the called peak clusters for Replicate 1 <b>Output from either CLIPPER or input-normed peaks</b>. This pipeline will perform input norm internally for you.
 ```
 rep1_peaks_bed_file:
   class: File
@@ -77,7 +77,7 @@ rep2_input_bam_file:
   path: RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
 ```
 
-BED file containing the called peak clusters for Replicate 2 <b>Output from CLIPPER!</b>. This pipeline will perform input norm internally for you.
+BED file containing the called peak clusters for Replicate 2 <b>Output from CLIPPER or input-normed peaks</b>. This pipeline will perform input norm internally for you.
 ```
 rep2_peaks_bed_file:
   class: File
