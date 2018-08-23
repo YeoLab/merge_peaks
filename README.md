@@ -100,8 +100,8 @@ determined by entropy-ordered peaks between two replicates.
     - chrom
     - start
     - end
-    - geomean of the log2 fold changes
-    - minimum of the -log10 p-value between two replicates
+    - minimum of the -log10 p-value between two replicates (coolumn 4)
+    - geomean of the log2 fold changes (column 5)
     - strand
 This is probably what will be useful.
 - *.full files: these tabbed outputs have the following columns (in order):
