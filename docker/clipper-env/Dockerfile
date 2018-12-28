@@ -18,6 +18,9 @@ LABEL about.tags="Genomics"
 ################## MAINTAINER ######################
 MAINTAINER Brian Yee <brian.alan.yee@gmail.com>
 
+RUN apt-get update
+RUN apt-get upgrade --yes
+
 RUN apt-get install -y g++
 
 RUN conda install -y -c bioconda \

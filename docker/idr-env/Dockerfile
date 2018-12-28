@@ -18,11 +18,15 @@ LABEL about.tags="Genomics"
 ################## MAINTAINER ######################
 MAINTAINER Brian Yee <brian.alan.yee@gmail.com>
 
-RUN apt-get install python3-dev python3-numpy python3-setuptools python3-matplotlib
+RUN apt-get update
+# RUN apt-get upgrade --yes
 
-RUN wget https://github.com/nboley/idr/archive/2.0.2.zip &&
-    unzip 2.0.2.zip &&
-    cd 2.0.2/ &&
+RUN apt-get install -y unzip libblas-dev liblapack-dev python3-dev python3-numpy python3-setuptools python3-matplotlib libc-dev g++
+
+RUN cd /opt/ && \
+    wget https://github.com/nboley/idr/archive/2.0.2.zip && \
+    unzip /opt/2.0.2.zip && \
+    cd /opt/idr-2.0.2/ && \
     python3 setup.py install
 
 WORKDIR /data/
