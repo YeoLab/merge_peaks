@@ -152,18 +152,18 @@ outputs:
 
   rep1_idr_output_input_normed_bed:
     type: File
-    outputSource: rep1_input_norm_using_idr_peaks/inputNormedBed
+    outputSource: rep1_input_norm_using_idr_peaks/inputnormedBed
   rep2_idr_output_input_normed_bed:
     type: File
-    outputSource: rep2_input_norm_using_idr_peaks/inputNormedBed
+    outputSource: rep2_input_norm_using_idr_peaks/inputnormedBed
 
 
   rep1_idr_output_input_normed_full:
     type: File
-    outputSource: rep1_input_norm_using_idr_peaks/inputNormedBedFull
+    outputSource: rep1_input_norm_using_idr_peaks/inputnormedBedfull
   rep2_idr_output_input_normed_full:
     type: File
-    outputSource: rep2_input_norm_using_idr_peaks/inputNormedBedFull
+    outputSource: rep2_input_norm_using_idr_peaks/inputnormedBedfull
 
 
   rep1_reproducing_peaks_full:
@@ -274,8 +274,8 @@ steps:
       inputReadnum: rep1_input_norm_and_entropy/input_read_num
 
     out:
-      - inputNormedBed
-      - inputNormedBedFull
+      - inputnormedBed
+      - inputnormedBedfull
 
   rep2_input_norm_using_idr_peaks:
     run: overlap_peakfi_with_bam.cwl
@@ -289,15 +289,15 @@ steps:
       inputReadnum: rep2_input_norm_and_entropy/input_read_num
 
     out:
-      - inputNormedBed
-      - inputNormedBedFull
+      - inputnormedBed
+      - inputnormedBedfull
 
 
   get_reproducing_peaks:
     run: get_reproducing_peaks.cwl
     in:
-      rep1_full_in: rep1_input_norm_using_idr_peaks/inputNormedBedFull
-      rep2_full_in: rep2_input_norm_using_idr_peaks/inputNormedBedFull
+      rep1_full_in: rep1_input_norm_using_idr_peaks/inputnormedBedfull
+      rep2_full_in: rep2_input_norm_using_idr_peaks/inputnormedBedfull
 
       rep1_full_output:
         default: "01v02.IDR.out.0102merged.01.full"
