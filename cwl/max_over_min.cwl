@@ -2,11 +2,16 @@
 
 cwlVersion: v1.0
 
-class: ExpressionTool
+class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
 
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/merge_peaks:0.0.6
+    
+baseCommand: [ max_over_min.sh ]
 
 inputs:
 
@@ -20,11 +25,14 @@ inputs:
     inputBinding:
       position: 2
 
+  output_file:
+    type: string
+    inputBinding:
+      position: 3
 
 outputs:
 
   ratio:
-    type: float
-
-expression: "${ return {'ratio': Math.max(inputs.count1, inputs.count2) / Math.min(inputs.count1, inputs.count2) }; }"
-
+    type: File
+    outputBinding:
+      glob: $(inputs.output_file)

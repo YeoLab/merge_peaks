@@ -7,6 +7,10 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/merge_peaks:0.0.6
+    
 baseCommand: [full_to_bed.py]
 
 inputs:

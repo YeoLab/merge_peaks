@@ -33,7 +33,25 @@ outputs:
   reproducing_peaks_count:
     type: int
     outputSource: step_reproducible_peaks_num/reproducing_peaks_count
-
+  
+  ## DEBUG ##
+  
+  rep1_clip_read_num:
+    type: File
+    outputSource: step_reproducible_peaks_num/rep1_clip_read_num
+  rep2_clip_read_num:
+    type: File
+    outputSource: step_reproducible_peaks_num/rep2_clip_read_num
+  rep1_input_read_num:
+    type: File
+    outputSource: step_reproducible_peaks_num/rep1_input_read_num
+  rep2_input_read_num:
+    type: File
+    outputSource: step_reproducible_peaks_num/rep2_input_read_num
+  merged_peaks_bed_file:
+    type: File
+    outputSource: step_reproducible_peaks_num/merged_peaks_bed_file
+  
 steps:
 
 
@@ -70,8 +88,10 @@ steps:
     in:
       rep1_clip_bam_file: step_bam_split/split1
       rep2_clip_bam_file: step_bam_split/split2
+
       rep1_input_bam_file: input_bam
       rep2_input_bam_file: input_bam
+
       rep1_peaks_bed_file: step_clipper_split1/output_bed
       rep2_peaks_bed_file: step_clipper_split2/output_bed
 
@@ -79,7 +99,11 @@ steps:
       merged_peaks_custombed: merged_peaks_custombed
     out:
       - reproducing_peaks_count
-
+      - rep1_clip_read_num # DEBUG
+      - rep1_input_read_num # DEBUG
+      - rep2_clip_read_num # DEBUG
+      - rep2_input_read_num # DEBUG
+      - merged_peaks_bed_file # DEBUG
 
 
 doc: |

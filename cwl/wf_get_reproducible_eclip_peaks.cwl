@@ -82,6 +82,7 @@ outputs:
 
 
   rep1_clip_read_num:
+    doc: file containing mapped reads from rep1 clip BAM
     type: File
     outputSource: rep1_input_norm_and_entropy/clip_read_num
   rep1_input_read_num:
@@ -90,20 +91,26 @@ outputs:
 
 
   rep1_input_normed_bed:
+    doc: input normalized clip over input for rep1
     type: File
     outputSource: rep1_input_norm_and_entropy/input_normed_bed
   rep1_input_normed_full:
+    doc: input normalized clip over input for rep1 with read info
     type: File
     outputSource: rep1_input_norm_and_entropy/input_normed_full
-
-
+  rep1_compressed_bed:
+    doc: input normalized and compressed clip over input for rep1
+    type: File
+    outputSource: rep1_input_norm_and_entropy/compressed_bed
   rep1_entropy_full:
+    doc: input normalized clip over input for rep1 with entropy info
     type: File
     outputSource: rep1_input_norm_and_entropy/entropy_full
   rep1_entropy_excess_reads:
     type: File
     outputSource: rep1_input_norm_and_entropy/entropy_excess_reads
   rep1_entropy_bed:
+    doc: entropy file re-formatted as a bed file for input to IDR
     type: File
     outputSource: rep1_input_norm_and_entropy/entropy_bed
 
@@ -114,16 +121,15 @@ outputs:
   rep2_input_read_num:
     type: File
     outputSource: rep2_input_norm_and_entropy/input_read_num
-
-
   rep2_input_normed_bed:
     type: File
     outputSource: rep2_input_norm_and_entropy/input_normed_bed
   rep2_input_normed_full:
     type: File
     outputSource: rep2_input_norm_and_entropy/input_normed_full
-
-
+  rep2_compressed_bed:
+    type: File
+    outputSource: rep2_input_norm_and_entropy/compressed_bed
   rep2_entropy_full:
     type: File
     outputSource: rep2_input_norm_and_entropy/entropy_full
@@ -181,16 +187,12 @@ outputs:
 
 steps:
 
-
-
   rep1_input_norm_and_entropy:
     run: wf_input_norm_and_entropy.cwl
     in:
       clip_bam_file: rep1_clip_bam_file
       input_bam_file: rep1_input_bam_file
       peak_file: rep1_peaks_bed_file
-      # outputPrefix: outputPrefixRep1
-      # inputNormSuffix: inputNormSuffixRep1
 
     out:
       - clip_read_num
@@ -212,8 +214,6 @@ steps:
       clip_bam_file: rep2_clip_bam_file
       input_bam_file: rep2_input_bam_file
       peak_file: rep2_peaks_bed_file
-      # outputPrefix: outputPrefixRep2
-      # inputNormSuffix: inputNormSuffixRep2
 
     out:
       - clip_read_num
@@ -244,7 +244,6 @@ steps:
         default: "max"
       plot:
         default: true
-
       outputFilename:
         default: "01v02.idr.out"
 
@@ -274,9 +273,6 @@ steps:
       clipReadnum: rep1_input_norm_and_entropy/clip_read_num
       inputReadnum: rep1_input_norm_and_entropy/input_read_num
 
-      # outputPrefix: idrInputNormRep1BedFilename
-      # inputNormSuffix: inputNormSuffixRep1
-
     out:
       - inputNormedBed
       - inputNormedBedFull
@@ -291,10 +287,6 @@ steps:
 
       clipReadnum: rep2_input_norm_and_entropy/clip_read_num
       inputReadnum: rep2_input_norm_and_entropy/input_read_num
-
-      # outputPrefix: idrInputNormRep2BedFilename
-      # inputNormSuffix: inputNormSuffixRep2
-
 
     out:
       - inputNormedBed
@@ -326,7 +318,6 @@ steps:
       - rep2_full_output_file
       - output_bed_file
       - output_custombed_file
-
 
   count_reproducing_peaks:
       run: linescount.cwl

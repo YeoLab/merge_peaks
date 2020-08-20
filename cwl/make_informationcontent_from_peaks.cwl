@@ -10,6 +10,10 @@ requirements:
     coresMax: 16
     ramMin: 16000
 
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/merge_peaks:0.0.6
+
 baseCommand: [make_informationcontent_from_peaks.pl]
 
 inputs:
@@ -20,18 +24,18 @@ inputs:
     inputBinding:
       position: 1
 
-  # clip readnum number FILE
   clip_read_num:
     type: File
     inputBinding:
       position: 2
-
-  # input readnum number FILE
+    doc: "File containing a single number corresponding to the number of mapped reads in IP."
+    
   input_read_num:
     type: File
     inputBinding:
       position: 3
-
+    doc: "File containing a single number corresponding to the number of mapped reads in INPUT."
+    
   output_file:
     type: string
     default: ""

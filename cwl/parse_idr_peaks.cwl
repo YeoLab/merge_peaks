@@ -4,6 +4,10 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/merge_peaks:0.0.6
+
 baseCommand: [parse_idr_peaks.pl]
 
 inputs:
@@ -13,29 +17,20 @@ inputs:
     inputBinding:
       position: 1
 
-
   entropyFile1:
     type: File
     inputBinding:
       position: 2
-
 
   entropyFile2:
     type: File
     inputBinding:
       position: 3
 
-
-
-
   outputFilename:
     type: string
     inputBinding:
       position: 4
-
-
-
-
 
 outputs:
 

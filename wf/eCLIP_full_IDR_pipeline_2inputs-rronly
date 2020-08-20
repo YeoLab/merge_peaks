@@ -18,7 +18,7 @@ set -o pipefail
 
 
 CWLRUNNER=cwltorq # either: cwltool cwltoil or cwltorq
-WORKFLOW=wf_full_IDR_pipeline_2inputs_scatter # the prefix of the workflow cwl (without .cwl extension)
+WORKFLOW=wf_full_IDR_pipeline_2inputs-rronly # the prefix of the workflow cwl (without .cwl extension)
 
 PIPELINE=IDR  # workflow prefix
 PIPELINEVERSION=0.0.6  # workflow version
@@ -167,7 +167,7 @@ then
   if [ $CWLRUNNER == cwltorq ]; then
     BATCHSYSTEM="torque --disableCaching"
     export TOIL_TORQUE_ARGS="-q home-yeo"              # home-yeo
-    export TOIL_TORQUE_REQS="walltime=40:00:00"      # walltime=8:00:00
+    export TOIL_TORQUE_REQS="walltime=12:00:00"      # walltime=8:00:00
   else
     BATCHSYSTEM="single_machine"
   fi

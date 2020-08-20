@@ -1,0 +1,25 @@
+#!/usr/bin/env eCLIP_full_IDR_pipeline_1input_scatter_singleNode
+
+species: hg19
+samples:
+  - 
+    - name: "peCLIP_rep1"
+      ip_bam: 
+        class: File
+        path: inputs/204_01_RBFOX2.merged.r2.bam
+      input_bam:
+        class: File
+        path: inputs/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+      peak_clusters:
+        class: File
+        path: inputs/204_01_RBFOX2.merged.r2.peaks.bed
+    - name: "peCLIP_rep2"
+      ip_bam: 
+        class: File
+        path: inputs/204_02_RBFOX2.merged.r2.bam
+      input_bam:
+        class: File
+        path: inputs/RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+      peak_clusters:
+        class: File
+        path: inputs/204_02_RBFOX2.merged.r2.peaks.bed

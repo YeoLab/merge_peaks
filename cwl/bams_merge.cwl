@@ -4,6 +4,10 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/samtools:1.6
+    
 baseCommand:
   - samtools
   - merge
