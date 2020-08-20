@@ -58,110 +58,110 @@ outputs:
 
     ## MAPPED READ NUMBERS ##
 
-  wf_full_IDR_pipeline_2inputs_sample_rep1_clip_read_num:
+  rep1_clip_read_num:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_clip_read_num
-  wf_full_IDR_pipeline_2inputs_sample_rep2_clip_read_num:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_clip_read_num
+  rep2_clip_read_num:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_clip_read_num
-  wf_full_IDR_pipeline_2inputs_sample_rep1_input_read_num:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_clip_read_num
+  rep1_input_read_num:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_input_read_num
-  wf_full_IDR_pipeline_2inputs_sample_rep2_input_read_num:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_input_read_num
+  rep2_input_read_num:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_input_read_num
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_input_read_num
 
 
   ## INPUT NORMALIZATION 1 ##
 
-  wf_full_IDR_pipeline_2inputs_sample_rep1_input_normed_bed:
+  rep1_input_normed_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_input_normed_bed
-  wf_full_IDR_pipeline_2inputs_sample_rep2_input_normed_bed:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_input_normed_bed
+  rep2_input_normed_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_input_normed_bed
-  wf_full_IDR_pipeline_2inputs_sample_rep1_input_normed_full:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_input_normed_bed
+  rep1_input_normed_full:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_input_normed_full
-  wf_full_IDR_pipeline_2inputs_sample_rep2_input_normed_full:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_input_normed_full
+  rep2_input_normed_full:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_input_normed_full
-  wf_full_IDR_pipeline_2inputs_sample_rep1_compressed_bed:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_input_normed_full
+  rep1_compressed_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_compressed_bed
-  wf_full_IDR_pipeline_2inputs_sample_rep2_compressed_bed:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_compressed_bed
+  rep2_compressed_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_compressed_bed
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_compressed_bed
 
 
   ## ENTROPY FILES ##
 
-  wf_full_IDR_pipeline_2inputs_sample_rep1_entropy_full:
+  rep1_entropy_full:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_entropy_full
-  wf_full_IDR_pipeline_2inputs_sample_rep2_entropy_full:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_entropy_full
+  rep2_entropy_full:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_entropy_full
-  wf_full_IDR_pipeline_2inputs_sample_rep1_entropy_excess_reads:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_entropy_full
+  rep1_entropy_excess_reads:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_entropy_excess_reads
-  wf_full_IDR_pipeline_2inputs_sample_rep2_entropy_excess_reads:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_entropy_excess_reads
+  rep2_entropy_excess_reads:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_entropy_excess_reads
-  wf_full_IDR_pipeline_2inputs_sample_rep1_entropy_bed:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_entropy_excess_reads
+  rep1_entropy_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_entropy_bed
-  wf_full_IDR_pipeline_2inputs_sample_rep2_entropy_bed:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_entropy_bed
+  rep2_entropy_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_entropy_bed
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_entropy_bed
 
 
   ## IDR OUTPUTS ##
 
-  wf_full_IDR_pipeline_2inputs_sample_idr_output:
+  idr_output:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_idr_output
-  wf_full_IDR_pipeline_2inputs_sample_idr_output_bed:
+    outputSource: wf_full_IDR_pipeline_2inputs/idr_output
+  idr_output_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_idr_output_bed
+    outputSource: wf_full_IDR_pipeline_2inputs/idr_output_bed
 
 
   ## ERICS SPLIT-JOIN PEAKS ##
 
-  wf_full_IDR_pipeline_2inputs_sample_rep1_idr_output_input_normed_bed:
+  rep1_idr_output_input_normed_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_idr_output_input_normed_bed
-  wf_full_IDR_pipeline_2inputs_sample_rep2_idr_output_input_normed_bed:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_idr_output_input_normed_bed
+  rep2_idr_output_input_normed_bed:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_idr_output_input_normed_bed
-  wf_full_IDR_pipeline_2inputs_sample_rep1_idr_output_input_normed_full:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_idr_output_input_normed_bed
+  rep1_idr_output_input_normed_full:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_idr_output_input_normed_full
-  wf_full_IDR_pipeline_2inputs_sample_rep2_idr_output_input_normed_full:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_idr_output_input_normed_full
+  rep2_idr_output_input_normed_full:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_idr_output_input_normed_full
-  wf_full_IDR_pipeline_2inputs_sample_rep1_reproducing_peaks_full:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_idr_output_input_normed_full
+  rep1_reproducing_peaks_full:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep1_reproducing_peaks_full
-  wf_full_IDR_pipeline_2inputs_sample_rep2_reproducing_peaks_full:
+    outputSource: wf_full_IDR_pipeline_2inputs/rep1_reproducing_peaks_full
+  rep2_reproducing_peaks_full:
     type: File
-    outputSource: wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rep2_reproducing_peaks_full
+    outputSource: wf_full_IDR_pipeline_2inputs/rep2_reproducing_peaks_full
 
 
   ## FINAL OUTPUTS ##
 
-  wf_full_IDR_pipeline_2inputs_sample_reproducible_peaks:
+  reproducible_peaks:
     type: File
     outputSource:
-      wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_reproducible_peaks
-  wf_full_IDR_pipeline_2inputs_sample_rescue_ratio:
+      wf_full_IDR_pipeline_2inputs/reproducible_peaks
+  rescue_ratio:
     type: File
     outputSource:
-      wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_rescue_ratio
-  wf_full_IDR_pipeline_2inputs_sample_self_consistency_ratio:
+      wf_full_IDR_pipeline_2inputs/rescue_ratio
+  self_consistency_ratio:
     type: File
     outputSource:
-      wf_full_IDR_pipeline_2inputs/wf_full_IDR_pipeline_2inputs_self_consistency_ratio
+      wf_full_IDR_pipeline_2inputs/self_consistency_ratio
 
 
 steps:
@@ -209,31 +209,31 @@ steps:
       rep2_merged_peaks_bed_from_cc: rep2_merged_peaks_bed_from_cc
       rep2_merged_peaks_custombed_from_cc: rep2_merged_peaks_custombed_from_cc
     out: [
-      wf_full_IDR_pipeline_2inputs_rep1_clip_read_num,
-      wf_full_IDR_pipeline_2inputs_rep2_clip_read_num,
-      wf_full_IDR_pipeline_2inputs_rep1_input_read_num,
-      wf_full_IDR_pipeline_2inputs_rep2_input_read_num,
-      wf_full_IDR_pipeline_2inputs_rep1_input_normed_bed,
-      wf_full_IDR_pipeline_2inputs_rep2_input_normed_bed,
-      wf_full_IDR_pipeline_2inputs_rep1_input_normed_full,
-      wf_full_IDR_pipeline_2inputs_rep2_input_normed_full,
-      wf_full_IDR_pipeline_2inputs_rep1_compressed_bed,
-      wf_full_IDR_pipeline_2inputs_rep2_compressed_bed,
-      wf_full_IDR_pipeline_2inputs_rep1_entropy_full,
-      wf_full_IDR_pipeline_2inputs_rep2_entropy_full,
-      wf_full_IDR_pipeline_2inputs_rep1_entropy_excess_reads,
-      wf_full_IDR_pipeline_2inputs_rep2_entropy_excess_reads,
-      wf_full_IDR_pipeline_2inputs_rep1_entropy_bed,
-      wf_full_IDR_pipeline_2inputs_rep2_entropy_bed,
-      wf_full_IDR_pipeline_2inputs_idr_output,
-      wf_full_IDR_pipeline_2inputs_idr_output_bed,
-      wf_full_IDR_pipeline_2inputs_rep1_idr_output_input_normed_bed,
-      wf_full_IDR_pipeline_2inputs_rep2_idr_output_input_normed_bed,
-      wf_full_IDR_pipeline_2inputs_rep1_idr_output_input_normed_full,
-      wf_full_IDR_pipeline_2inputs_rep2_idr_output_input_normed_full,
-      wf_full_IDR_pipeline_2inputs_rep1_reproducing_peaks_full,
-      wf_full_IDR_pipeline_2inputs_rep2_reproducing_peaks_full,
-      wf_full_IDR_pipeline_2inputs_reproducible_peaks,
-      wf_full_IDR_pipeline_2inputs_rescue_ratio,
-      wf_full_IDR_pipeline_2inputs_self_consistency_ratio
+      rep1_clip_read_num,
+      rep2_clip_read_num,
+      rep1_input_read_num,
+      rep2_input_read_num,
+      rep1_input_normed_bed,
+      rep2_input_normed_bed,
+      rep1_input_normed_full,
+      rep2_input_normed_full,
+      rep1_compressed_bed,
+      rep2_compressed_bed,
+      rep1_entropy_full,
+      rep2_entropy_full,
+      rep1_entropy_excess_reads,
+      rep2_entropy_excess_reads,
+      rep1_entropy_bed,
+      rep2_entropy_bed,
+      idr_output,
+      idr_output_bed,
+      rep1_idr_output_input_normed_bed,
+      rep2_idr_output_input_normed_bed,
+      rep1_idr_output_input_normed_full,
+      rep2_idr_output_input_normed_full,
+      rep1_reproducing_peaks_full,
+      rep2_reproducing_peaks_full,
+      reproducible_peaks,
+      rescue_ratio,
+      self_consistency_ratio
     ]

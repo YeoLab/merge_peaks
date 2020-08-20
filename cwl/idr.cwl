@@ -4,9 +4,9 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-hints:
-  - class: DockerRequirement
-    dockerPull: brianyee/idr:2.0.2
+# hints:
+#   DockerRequirement:
+#     dockerPull: brianyee/idr
 
 baseCommand: [idr]
 

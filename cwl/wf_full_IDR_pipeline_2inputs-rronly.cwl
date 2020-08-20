@@ -58,10 +58,10 @@ outputs:
 
   rescue_ratio:
     type: float
-    outputSource: wf_rescue_ratio_2inputs/wf_rescue_ratio_2inputs_rescue_ratio
+    outputSource: wf_rescue_ratio_2inputs/rescue_ratio
   reproducible_peaks:
     type: File
-    outputSource: wf_rescue_ratio_2inputs/wf_rescue_ratio_2inputs_reproducible_peaks
+    outputSource: wf_rescue_ratio_2inputs/true_reproducible_peaks
 
 steps:
 
@@ -80,6 +80,6 @@ steps:
       split_peaks_bed: split_peaks_bed
       split_peaks_custombed: split_peaks_custombed
     out: [
-      wf_rescue_ratio_2inputs_rescue_ratio,
-      wf_rescue_ratio_2inputs_reproducible_peaks
+      rescue_ratio,
+      true_reproducible_peaks
     ]

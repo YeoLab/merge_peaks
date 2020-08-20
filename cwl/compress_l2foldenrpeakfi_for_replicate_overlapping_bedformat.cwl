@@ -9,14 +9,15 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-hints:
-  - class: DockerRequirement
-    dockerPull: brianyee/merge_peaks:0.0.6
-    
 requirements:
   - class: ResourceRequirement
     coresMin: 1
+    coresMax: 16
     ramMin: 16000
+
+# hints:
+#   DockerRequirement:
+#     dockerPull: brianyee/perl
 
 baseCommand: [compress_l2foldenrpeakfi_for_replicate_overlapping_bedformat.pl]
 

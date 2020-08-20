@@ -40,7 +40,6 @@ inputs:
   merged_peaks_custombed:
     type: string
 
-  # DEFAULTS (dummy variables that we don't need at all)
   merged_peaks_bed_from_rr:
     type: string
     default: "reproducible_peaks_from_rescue_ratio.bed"
@@ -72,14 +71,8 @@ outputs:
 
   self_consistency_ratio:
     type: float
-    outputSource: wf_self_consistency_ratio/wf_self_consistency_ratio_self_consistency_ratio
-  rep1_reproducing_peaks_count:
-    type: float
-    outputSource: wf_self_consistency_ratio/wf_self_consistency_ratio_rep1_reproducing_peaks_count
-  rep2_reproducing_peaks_count:
-    type: float
-    outputSource: wf_self_consistency_ratio/wf_self_consistency_ratio_rep2_reproducing_peaks_count
-    
+    outputSource: wf_self_consistency_ratio/self_consistency_ratio
+
 steps:
 
   wf_self_consistency_ratio:
@@ -95,7 +88,5 @@ steps:
       rep2_merged_peaks_bed: rep2_merged_peaks_bed_from_cc
       rep2_merged_peaks_custombed: rep2_merged_peaks_custombed_from_cc
     out: [
-      wf_self_consistency_ratio_self_consistency_ratio,
-      wf_self_consistency_ratio_rep1_reproducing_peaks_count,
-      wf_self_consistency_ratio_rep2_reproducing_peaks_count
+      self_consistency_ratio
     ]

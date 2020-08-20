@@ -10,20 +10,20 @@ requirements:
     coresMax: 16
     ramMin: 16000
 
-hints:
-  - class: DockerRequirement
-    dockerPull: brianyee/merge_peaks:0.0.6
+# hints:
+#   DockerRequirement:
+#     dockerPull: brianyee/perl
 
 baseCommand: [overlap_peakfi_with_bam.pl]
 
 inputs:
 
+  # IP BAM file
   clipBamFile:
     type: File
     inputBinding:
       position: -5
-    doc: "IP BAM file"
-    
+
   inputBamFile:
     type: File
     inputBinding:
@@ -34,11 +34,13 @@ inputs:
     inputBinding:
       position: -3
 
+  # mapped_read_num
   clipReadnum:
     type: File
     inputBinding:
       position: -2
 
+  #mapped_read_num"
   inputReadnum:
     type: File
     inputBinding:
@@ -88,5 +90,5 @@ outputs:
         }
 
 doc: |
-  This tool wraps overlap_peakfi_with_bam.pl
-    Usage: overlap_peakfi_with_bam.pl exptbamfile inputbamfile peakfile expt_readnum_file input_readnum_file 
+  This tool wraps
+    Usage:

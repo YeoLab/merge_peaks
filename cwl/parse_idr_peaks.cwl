@@ -4,9 +4,9 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-hints:
-  - class: DockerRequirement
-    dockerPull: brianyee/merge_peaks:0.0.6
+# hints:
+#   DockerRequirement:
+#     dockerPull: brianyee/perl
 
 baseCommand: [parse_idr_peaks.pl]
 
