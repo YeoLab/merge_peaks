@@ -4,59 +4,55 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-# hints:
-#   DockerRequirement:
-#     dockerPull: brianyee/perl
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/merge_peaks:0.0.6
 
 baseCommand: [get_reproducing_peaks.pl]
 
 inputs:
 
-
-  # rep1 full out after idr (.01.bed.full or rep1.bed.full)
   rep1_full_in:
     type: File
     inputBinding:
       position: 1
-
-  # rep1 full out after idr (.02.bed.full or rep2.bed.full)"
+    doc: "rep1 full out after idr (.01.bed.full or rep1.bed.full)"
+    
   rep2_full_in:
     type: File
     inputBinding:
       position: 2
+    doc: "rep1 full out after idr (.02.bed.full or rep2.bed.full)"
 
-  # rep1 full out after this step
-  # rep1FullOutFilename:
   rep1_full_output:
     type: string
     inputBinding:
       position: 3
-  # rep2 full out after this step
-  # rep2FullOutFilename:
+    doc: "rep1 full out after this step"
+      
   rep2_full_output:
     type: string
     inputBinding:
       position: 4
-  # final reproduced peaks?
-  # bedOutFilename:
+    doc: "rep2 full out after this step"
+
   output_bed:
     type: string
     inputBinding:
       position: 5
-
-  # customBedOutFilename:
+    doc: "final reproducible peaks (BED6 format)"
+    
   output_custombed:
     type: string
     inputBinding:
       position: 6
+    doc: "final reproducible peaks (BED+extra cols format)"
 
-  # rep1Entropy:
   rep1_entropy_file:
     type: File
     inputBinding:
       position: 7
 
-  # rep2Entropy:
   rep2_entropy_file:
     type: File
     inputBinding:

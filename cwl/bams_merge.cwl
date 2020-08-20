@@ -4,14 +4,16 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/samtools:1.6
+    
 baseCommand:
   - samtools
   - merge
 
-
 arguments:
   - $(inputs.rep1_bam.basename)_$(inputs.rep2_bam.basename).merged.bam
-
 
 inputs:
 

@@ -4,11 +4,11 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/samtools:1.6
+    
 baseCommand: [samtools, view]
-
-# hints:
-#   DockerRequirement:
-#     dockerPull: brianyee/samtools
 
 inputs:
 
@@ -35,15 +35,7 @@ inputs:
       position: 3
     label: "BAM file"
 
-
-#  output:
-#    type: string?
-#    default: $(inputs.bamFile.nameroot).readnum
-
-
-#stdout: $(inputs.output)
 stdout: $(inputs.bamFile.nameroot).readnum
-
 
 outputs:
 

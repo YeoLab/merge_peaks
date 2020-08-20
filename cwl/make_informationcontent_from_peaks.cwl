@@ -7,35 +7,33 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
     coresMin: 1
-    coresMax: 16
     ramMin: 16000
 
-# hints:
-#   DockerRequirement:
-#     dockerPull: brianyee/perl
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/merge_peaks:0.0.6
 
 baseCommand: [make_informationcontent_from_peaks.pl]
 
 inputs:
-
 
   compressed_bed_full:
     type: File
     inputBinding:
       position: 1
 
-  # clip readnum number FILE
   clip_read_num:
     type: File
     inputBinding:
       position: 2
-
-  # input readnum number FILE
+    doc: "A file containing a single number corresponding to the number of mapped reads (-cF 4) in CLIP"
+    
   input_read_num:
     type: File
     inputBinding:
       position: 3
-
+    doc: "A file containing a single number corresponding to the number of mapped reads (-cF 4) in INPUT"
+    
   output_file:
     type: string
     default: ""

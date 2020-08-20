@@ -33,10 +33,10 @@ outputs:
 
   input_normed_bed:
     type: File
-    outputSource: input_norm/inputNormedBed
+    outputSource: input_norm/inputnormedBed
   input_normed_full:
     type: File
-    outputSource: input_norm/inputNormedBedFull
+    outputSource: input_norm/inputnormedBedfull
 
 
   compressed_bed:
@@ -87,13 +87,13 @@ steps:
       inputReadnum: calculate_input_readnum/readnum
 
     out:
-      - inputNormedBed
-      - inputNormedBedFull
+      - inputnormedBed
+      - inputnormedBedfull
 
   compress_peaks:
     run: compress_l2foldenrpeakfi_for_replicate_overlapping_bedformat_outputfull.cwl
     in:
-      input_full: input_norm/inputNormedBedFull
+      input_full: input_norm/inputnormedBedfull
 
     out:
       - output_bed

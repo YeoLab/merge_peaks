@@ -1,6 +1,7 @@
 #!/usr/bin/env cwltool
 
-### parses an IDR record sample object into distinct reads ###
+doc: |
+  This expressiontool parses an IDR record sample object into distinct reads
 
 cwlVersion: v1.0
 class: ExpressionTool
@@ -65,6 +66,3 @@ expression: |
         'reproducible_peaks_custombed': inputs.sample[0].name + ".vs." + inputs.sample[1].name + ".custombed"
       }
     }
-
-doc: |
-  This expressiontool parses an IDR record sample object into distinct reads

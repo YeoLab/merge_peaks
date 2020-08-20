@@ -7,6 +7,10 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
 
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/merge_peaks:0.0.6
+    
 baseCommand: [ max_over_min.sh ]
 
 inputs:
@@ -32,6 +36,3 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_file)
-
-# expression: "${ return {'ratio': Math.max(inputs.count1, inputs.count2) / Math.min(inputs.count1, inputs.count2) }; }"
-

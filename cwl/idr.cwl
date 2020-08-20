@@ -4,22 +4,21 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-# hints:
-#   DockerRequirement:
-#     dockerPull: brianyee/idr
+hints:
+  - class: DockerRequirement
+    dockerPull: brianyee/idr:2.0.2
 
 baseCommand: [idr]
 
 inputs:
 
-
-  # input bed file
   samples:
     type: File[]
     inputBinding:
       position: 1
       prefix: --samples
-
+    doc: "input bed file"
+    
   inputFileType:
     type: string
     inputBinding:

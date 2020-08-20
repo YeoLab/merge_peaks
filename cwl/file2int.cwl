@@ -4,6 +4,7 @@ doc: |
   Returns string expression based on file contents.
 
 cwlVersion: v1.0
+
 class: ExpressionTool
 
 requirements:

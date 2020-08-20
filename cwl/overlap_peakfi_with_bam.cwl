@@ -1,19 +1,16 @@
 #!/usr/bin/env cwltool
 
 cwlVersion: v1.0
+
 class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
-  - class: ResourceRequirement
-    coresMin: 1
-    coresMax: 16
-    ramMin: 16000
 
-# hints:
-#   DockerRequirement:
-#     dockerPull: brianyee/perl
-
+hints: 
+  - class: DockerRequirement
+    dockerPull: brianyee/merge_peaks:0.0.6
+    
 baseCommand: [overlap_peakfi_with_bam.pl]
 
 inputs:
@@ -63,7 +60,7 @@ inputs:
 
 outputs:
 
-  inputNormedBed:
+  inputnormedBed:
     type: File
     outputBinding:
       glob: |
@@ -76,7 +73,7 @@ outputs:
           }
         }
 
-  inputNormedBedFull:
+  inputnormedBedfull:
     type: File
     outputBinding:
       glob: |
@@ -90,5 +87,5 @@ outputs:
         }
 
 doc: |
-  This tool wraps
+  This tool wraps overlap_peakfi_with_bam_PE.pl
     Usage:
