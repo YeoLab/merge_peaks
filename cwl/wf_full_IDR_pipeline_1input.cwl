@@ -68,107 +68,107 @@ outputs:
 
   ## MAPPED READ NUMBERS ##
 
-  rep1_clip_read_num:
+  wf_full_IDR_pipeline_1input_rep1_clip_read_num:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_clip_read_num
-  rep2_clip_read_num:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_clip_read_num
+  wf_full_IDR_pipeline_1input_rep2_clip_read_num:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_clip_read_num
-  rep1_input_read_num:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_clip_read_num
+  wf_full_IDR_pipeline_1input_rep1_input_read_num:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_input_read_num
-  rep2_input_read_num:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_input_read_num
+  wf_full_IDR_pipeline_1input_rep2_input_read_num:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_input_read_num
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_input_read_num
 
 
   ## INPUT NORMALIZATION 1 ##
 
-  rep1_input_normed_bed:
+  wf_full_IDR_pipeline_1input_rep1_input_normed_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_input_normed_bed
-  rep2_input_normed_bed:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_input_normed_bed
+  wf_full_IDR_pipeline_1input_rep2_input_normed_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_input_normed_bed
-  rep1_input_normed_full:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_input_normed_bed
+  wf_full_IDR_pipeline_1input_rep1_input_normed_full:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_input_normed_full
-  rep2_input_normed_full:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_input_normed_full
+  wf_full_IDR_pipeline_1input_rep2_input_normed_full:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_input_normed_full
-  rep1_compressed_bed:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_input_normed_full
+  wf_full_IDR_pipeline_1input_rep1_compressed_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_compressed_bed
-  rep2_compressed_bed:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_compressed_bed
+  wf_full_IDR_pipeline_1input_rep2_compressed_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_compressed_bed
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_compressed_bed
 
 
   ## ENTROPY FILES ##
 
-  rep1_entropy_full:
+  wf_full_IDR_pipeline_1input_rep1_entropy_full:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_entropy_full
-  rep2_entropy_full:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_entropy_full
+  wf_full_IDR_pipeline_1input_rep2_entropy_full:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_entropy_full
-  rep1_entropy_excess_reads:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_entropy_full
+  wf_full_IDR_pipeline_1input_rep1_entropy_excess_reads:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_entropy_excess_reads
-  rep2_entropy_excess_reads:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_entropy_excess_reads
+  wf_full_IDR_pipeline_1input_rep2_entropy_excess_reads:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_entropy_excess_reads
-  rep1_entropy_bed:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_entropy_excess_reads
+  wf_full_IDR_pipeline_1input_rep1_entropy_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_entropy_bed
-  rep2_entropy_bed:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_entropy_bed
+  wf_full_IDR_pipeline_1input_rep2_entropy_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_entropy_bed
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_entropy_bed
 
 
   ## IDR OUTPUTS ##
 
-  idr_output:
+  wf_full_IDR_pipeline_1input_idr_output:
     type: File
-    outputSource: wf_rescue_ratio_1input/idr_output
-  idr_output_bed:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_idr_output
+  wf_full_IDR_pipeline_1input_idr_output_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/idr_output_bed
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_idr_output_bed
 
 
   ## ERICS SPLIT-JOIN PEAKS ##
 
-  rep1_idr_output_input_normed_bed:
+  wf_full_IDR_pipeline_1input_rep1_idr_output_input_normed_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_idr_output_input_normed_bed
-  rep2_idr_output_input_normed_bed:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_idr_output_input_normed_bed
+  wf_full_IDR_pipeline_1input_rep2_idr_output_input_normed_bed:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_idr_output_input_normed_bed
-  rep1_idr_output_input_normed_full:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_idr_output_input_normed_bed
+  wf_full_IDR_pipeline_1input_rep1_idr_output_input_normed_full:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_idr_output_input_normed_full
-  rep2_idr_output_input_normed_full:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_idr_output_input_normed_full
+  wf_full_IDR_pipeline_1input_rep2_idr_output_input_normed_full:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_idr_output_input_normed_full
-  rep1_reproducing_peaks_full:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_idr_output_input_normed_full
+  wf_full_IDR_pipeline_1input_rep1_reproducing_peaks_full:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep1_reproducing_peaks_full
-  rep2_reproducing_peaks_full:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep1_reproducing_peaks_full
+  wf_full_IDR_pipeline_1input_rep2_reproducing_peaks_full:
     type: File
-    outputSource: wf_rescue_ratio_1input/rep2_reproducing_peaks_full
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rep2_reproducing_peaks_full
 
 
   ## FINAL OUTPUTS ##
 
-  reproducible_peaks:
+  wf_full_IDR_pipeline_1input_reproducible_peaks:
     type: File
-    outputSource: wf_rescue_ratio_1input/reproducible_peaks
-  rescue_ratio:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_reproducible_peaks
+  wf_full_IDR_pipeline_1input_rescue_ratio:
     type: File
-    outputSource: wf_rescue_ratio_1input/rescue_ratio
-  self_consistency_ratio:
+    outputSource: wf_rescue_ratio_1input/wf_rescue_ratio_1input_rescue_ratio
+  wf_full_IDR_pipeline_1input_self_consistency_ratio:
     type: File
-    outputSource: wf_self_consistency_ratio/self_consistency_ratio
+    outputSource: wf_self_consistency_ratio/wf_self_consistency_ratio_self_consistency_ratio
 
 steps:
   ## This is already included in the rescue-ratio calculations, but keeping this here in case we want to just re-calculate to be cleaner.
@@ -230,32 +230,32 @@ steps:
       split_peaks_bed: split_peaks_bed
       split_peaks_custombed: split_peaks_custombed
     out: [
-      rep1_clip_read_num,
-      rep2_clip_read_num,
-      rep1_input_read_num,
-      rep2_input_read_num,
-      rep1_input_normed_bed,
-      rep2_input_normed_bed,
-      rep1_input_normed_full,
-      rep2_input_normed_full,
-      rep1_compressed_bed,
-      rep2_compressed_bed,
-      rep1_entropy_full,
-      rep2_entropy_full,
-      rep1_entropy_excess_reads,
-      rep2_entropy_excess_reads,
-      rep1_entropy_bed,
-      rep2_entropy_bed,
-      idr_output,
-      idr_output_bed,
-      rep1_idr_output_input_normed_bed,
-      rep2_idr_output_input_normed_bed,
-      rep1_idr_output_input_normed_full,
-      rep2_idr_output_input_normed_full,
-      rep1_reproducing_peaks_full,
-      rep2_reproducing_peaks_full,
-      reproducible_peaks,
-      rescue_ratio
+      wf_rescue_ratio_1input_rep1_clip_read_num,
+      wf_rescue_ratio_1input_rep2_clip_read_num,
+      wf_rescue_ratio_1input_rep1_input_read_num,
+      wf_rescue_ratio_1input_rep2_input_read_num,
+      wf_rescue_ratio_1input_rep1_input_normed_bed,
+      wf_rescue_ratio_1input_rep2_input_normed_bed,
+      wf_rescue_ratio_1input_rep1_input_normed_full,
+      wf_rescue_ratio_1input_rep2_input_normed_full,
+      wf_rescue_ratio_1input_rep1_compressed_bed,
+      wf_rescue_ratio_1input_rep2_compressed_bed,
+      wf_rescue_ratio_1input_rep1_entropy_full,
+      wf_rescue_ratio_1input_rep2_entropy_full,
+      wf_rescue_ratio_1input_rep1_entropy_excess_reads,
+      wf_rescue_ratio_1input_rep2_entropy_excess_reads,
+      wf_rescue_ratio_1input_rep1_entropy_bed,
+      wf_rescue_ratio_1input_rep2_entropy_bed,
+      wf_rescue_ratio_1input_idr_output,
+      wf_rescue_ratio_1input_idr_output_bed,
+      wf_rescue_ratio_1input_rep1_idr_output_input_normed_bed,
+      wf_rescue_ratio_1input_rep2_idr_output_input_normed_bed,
+      wf_rescue_ratio_1input_rep1_idr_output_input_normed_full,
+      wf_rescue_ratio_1input_rep2_idr_output_input_normed_full,
+      wf_rescue_ratio_1input_rep1_reproducing_peaks_full,
+      wf_rescue_ratio_1input_rep2_reproducing_peaks_full,
+      wf_rescue_ratio_1input_reproducible_peaks,
+      wf_rescue_ratio_1input_rescue_ratio
     ]
   wf_self_consistency_ratio:
     run: wf_self_consistency_ratio.cwl
@@ -274,6 +274,6 @@ steps:
       rep2_merged_peaks_bed: rep2_merged_peaks_bed_from_cc
       rep2_merged_peaks_custombed: rep2_merged_peaks_custombed_from_cc
     out: [
-      self_consistency_ratio
+      wf_self_consistency_ratio_self_consistency_ratio
     ]
 

@@ -30,27 +30,27 @@ inputs:
 
 outputs:
 
-  wf_split_self_and_idr_output_reproducing_peaks_count:
+  wf_split_self_and_idr_reproducing_peaks_count:
     type: int
-    outputSource: step_reproducible_peaks_num/reproducing_peaks_count
+    outputSource: step_reproducible_peaks_num/wf_get_reproducible_eclip_peaks_reproducing_peaks_count
   
   ## DEBUG ##
   
-  wf_split_self_and_idr_output_rep1_clip_read_num:
+  wf_split_self_and_idr_rep1_clip_read_num:
     type: File
-    outputSource: step_reproducible_peaks_num/rep1_clip_read_num
-  wf_split_self_and_idr_output_rep2_clip_read_num:
+    outputSource: step_reproducible_peaks_num/wf_get_reproducible_eclip_peaks_rep1_clip_read_num
+  wf_split_self_and_idr_rep2_clip_read_num:
     type: File
-    outputSource: step_reproducible_peaks_num/rep2_clip_read_num
-  wf_split_self_and_idr_output_rep1_input_read_num:
+    outputSource: step_reproducible_peaks_num/wf_get_reproducible_eclip_peaks_rep2_clip_read_num
+  wf_split_self_and_idr_rep1_input_read_num:
     type: File
-    outputSource: step_reproducible_peaks_num/rep1_input_read_num
-  wf_split_self_and_idr_output_rep2_input_read_num:
+    outputSource: step_reproducible_peaks_num/wf_get_reproducible_eclip_peaks_rep1_input_read_num
+  wf_split_self_and_idr_rep2_input_read_num:
     type: File
-    outputSource: step_reproducible_peaks_num/rep2_input_read_num
-  wf_split_self_and_idr_output_merged_peaks_bed_file:
+    outputSource: step_reproducible_peaks_num/wf_get_reproducible_eclip_peaks_rep2_input_read_num
+  wf_split_self_and_idr_merged_peaks_bed_file:
     type: File
-    outputSource: step_reproducible_peaks_num/merged_peaks_bed_file
+    outputSource: step_reproducible_peaks_num/wf_get_reproducible_eclip_peaks_merged_peaks_bed_file
   
 steps:
 
@@ -98,12 +98,12 @@ steps:
       merged_peaks_bed: merged_peaks_bed
       merged_peaks_custombed: merged_peaks_custombed
     out:
-      - reproducing_peaks_count
-      - rep1_clip_read_num
-      - rep1_input_read_num
-      - rep2_clip_read_num
-      - rep2_input_read_num
-      - merged_peaks_bed_file
+      - wf_get_reproducible_eclip_peaks_reproducing_peaks_count
+      - wf_get_reproducible_eclip_peaks_rep1_clip_read_num
+      - wf_get_reproducible_eclip_peaks_rep1_input_read_num
+      - wf_get_reproducible_eclip_peaks_rep2_clip_read_num
+      - wf_get_reproducible_eclip_peaks_rep2_input_read_num
+      - wf_get_reproducible_eclip_peaks_merged_peaks_bed_file
 
 
 doc: |

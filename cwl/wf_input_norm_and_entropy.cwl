@@ -23,39 +23,39 @@ inputs:
 outputs:
 
 
-  clip_read_num:
+  wf_input_norm_and_entropy_clip_read_num:
     type: File
     outputSource: calculate_clip_readnum/readnum
-  input_read_num:
+  wf_input_norm_and_entropy_input_read_num:
     type: File
     outputSource: calculate_input_readnum/readnum
 
 
-  input_normed_bed:
+  wf_input_norm_and_entropy_input_normed_bed:
     type: File
     outputSource: input_norm/inputNormedBed
-  input_normed_full:
+  wf_input_norm_and_entropy_input_normed_full:
     type: File
     outputSource: input_norm/inputNormedBedFull
 
 
-  compressed_bed:
+  wf_input_norm_and_entropy_compressed_bed:
     type: File
     outputSource: compress_peaks/output_bed
-  compressed_full:
+  wf_input_norm_and_entropy_compressed_full:
     type: File
     outputSource: compress_peaks/output_full
 
 
-  entropy_full:
+  wf_input_norm_and_entropy_entropy_full:
     type: File
     outputSource: make_informationcontent_from_peaks/entropy_full
-  entropy_excess_reads:
+  wf_input_norm_and_entropy_entropy_excess_reads:
     type: File
     outputSource: make_informationcontent_from_peaks/entropy_excess_reads
 
 
-  entropy_bed:
+  wf_input_norm_and_entropy_entropy_bed:
     type: File
     outputSource: create_entropybed_from_entropyfull/bed
 
