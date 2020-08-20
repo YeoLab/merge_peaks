@@ -70,7 +70,7 @@ steps:
       merged_peaks_bed: rep1_merged_peaks_bed
       merged_peaks_custombed: rep1_merged_peaks_custombed
     out:
-      - reproducing_peaks_count
+      - wf_split_self_and_idr_output_reproducing_peaks_count
 
 
   step_split_rep2_and_idr:
@@ -82,14 +82,14 @@ steps:
       merged_peaks_bed: rep2_merged_peaks_bed
       merged_peaks_custombed: rep2_merged_peaks_custombed
     out:
-      - reproducing_peaks_count
+      - wf_split_self_and_idr_output_reproducing_peaks_count
 
 
   step_self_consistency:
     run: max_over_min.cwl
     in:
-      count1: step_split_rep1_and_idr/reproducing_peaks_count
-      count2: step_split_rep2_and_idr/reproducing_peaks_count
+      count1: step_split_rep1_and_idr/wf_split_self_and_idr_output_reproducing_peaks_count
+      count2: step_split_rep2_and_idr/wf_split_self_and_idr_output_reproducing_peaks_count
       output_file: 
         source: [rep1_name, rep2_name]
         valueFrom: |

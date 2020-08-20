@@ -243,20 +243,20 @@ steps:
       merged_peaks_custombed: split_peaks_custombed
 
     out:
-      - rep1_clip_read_num  # DEBUG
-      - rep2_clip_read_num  # DEBUG
-      - rep1_input_read_num  # DEBUG
-      - rep2_input_read_num  # DEBUG
+      - wf_split_self_and_idr_output_rep1_clip_read_num  # DEBUG
+      - wf_split_self_and_idr_output_rep2_clip_read_num  # DEBUG
+      - wf_split_self_and_idr_output_rep1_input_read_num  # DEBUG
+      - wf_split_self_and_idr_output_rep2_input_read_num  # DEBUG
       
-      - merged_peaks_bed_file  # DEBUG
+      - wf_split_self_and_idr_output_merged_peaks_bed_file  # DEBUG
       
-      - reproducing_peaks_count
+      - wf_split_self_and_idr_output_reproducing_peaks_count
 
   step_rescue_ratio:
     run: max_over_min.cwl
     in:
       count1: step_get_true_reproducing_peaks/reproducing_peaks_count
-      count2: step_split_merged_bam_and_idr/reproducing_peaks_count
+      count2: step_split_merged_bam_and_idr/wf_split_self_and_idr_output_reproducing_peaks_count
       output_file: 
         source: [rep1_name, rep2_name]
         valueFrom: |
