@@ -1,7 +1,10 @@
 #!/usr/bin/env cwltool
 
 doc: |
-  Computes the self-consistency ratio (see Gabe's protocols paper, or CHIP SEQ)
+  Computes the self-consistency ratio (see Gabe's protocols paper, or CHIP SEQ).
+  Given two replicates, split each and perform IDR on each fragment.
+  Returns the ratio of max(N1, N2)/min(N1, N2) where N1, N2 are
+  the numbers of reproducible peaks found between each rep split pair.
 
 
 cwlVersion: v1.0
@@ -98,8 +101,3 @@ steps:
           }
     out:
       - ratio
-
-doc: |
-  Given two replicates, split each and perform IDR on each fragment.
-  Returns the ratio of max(N1, N2)/min(N1, N2) where N1, N2 are
-  the numbers of reproducible peaks found between each rep split pair.

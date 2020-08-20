@@ -3,7 +3,7 @@
 doc: |
   This workflow returns the reproducible number of split peaks given a single
   bam file and its size-matched input pair. This workflow splits the bam file
-  first, but does not do anything to the input.
+  first, but does not do anything to the input. 
 
 cwlVersion: v1.0
 class: Workflow
@@ -103,11 +103,4 @@ steps:
       - rep1_input_read_num # DEBUG
       - rep2_clip_read_num # DEBUG
       - rep2_input_read_num # DEBUG
-      - merged_peaks_bed_file # DEBUG
-
-
-doc: |
-  Randomly splits a bam file and calls CLIPPER on each split.
-  Then, this workflow uses the split bam files and their corresponding
-  CLIPPER peaks and returns the number of reproducible peaks between the
-  two splits. Input bam files are not being split here.
+      - merged_peaks_bed_file # DEBUG  
