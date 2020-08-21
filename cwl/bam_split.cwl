@@ -7,6 +7,11 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
+requirements:
+  - class: InitialWorkDirRequirement
+    listing:
+      - $(inputs.bam)
+      
 hints:
   - class: DockerRequirement
     dockerPull: brianyee/merge_peaks:0.0.6

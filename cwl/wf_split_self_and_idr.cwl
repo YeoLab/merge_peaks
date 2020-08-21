@@ -63,20 +63,32 @@ steps:
       - split1
       - split2
 
+  index_split1:
+    run: samtools-index.cwl
+    in:
+      alignments: step_bam_split/split1
+    out: [alignments_with_index]
+  
+  index_split2:
+    run: samtools-index.cwl
+    in:
+      alignments: step_bam_split/split2
+    out: [alignments_with_index]
+    
   step_clipper_split1:
     run: clipper.cwl
     in:
-      bam: step_bam_split/split1
+      bam: index_split1/alignments_with_index
       species: species
     out:
       - output_tsv
       - output_bed
       - output_pickle
-
+    
   step_clipper_split2:
     run: clipper.cwl
     in:
-      bam: step_bam_split/split2
+      bam: index_split2/alignments_with_index
       species: species
     out:
       - output_tsv

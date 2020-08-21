@@ -154,7 +154,6 @@ echo
 if [ $CWLRUNNER == cwltool ]
 then
   cwltool --debug \
-    --user-space-docker-cmd udocker \
     --outdir ${OUTDIR} \
     --cachedir ${INTERM} \
     ${WORKFLOW_HOME}/cwl/${WORKFLOW}.cwl \
