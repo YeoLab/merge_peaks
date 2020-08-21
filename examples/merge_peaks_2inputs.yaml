@@ -1,0 +1,26 @@
+#!/usr/bin/env eCLIP_full_IDR_pipeline_2inputs_scatter_singleNode
+
+species: hg19
+samples:
+  - 
+    - name: "rep1"
+      ip_bam: 
+        class: File
+        path: /home/centos/seCLIP_inputs/INV_A.IP.umi.r1TrTr.sorted.STARUnmapped.out.sorted.STARAligned.outSo.rmDupSo.bam
+      input_bam:
+        class: File
+        path: /home/centos/seCLIP_inputs/INV_A.IN.umi.r1TrTr.sorted.STARUnmapped.out.sorted.STARAligned.outSo.rmDupSo.bam
+      peak_clusters:
+        class: File
+        path: /home/centos/seCLIP_inputs/INV_A.IP.umi.r1TrTr.sorted.STARUnmapped.out.sorted.STARAligned.outSo.rmDupSo.peakClusters.bed
+    - name: "rep2"
+      ip_bam: 
+        class: File
+        path: /home/centos/seCLIP_inputs/INV_B.IP.umi.r1TrTr.sorted.STARUnmapped.out.sorted.STARAligned.outSo.rmDupSo.bam
+      input_bam:
+        class: File
+        path: /home/centos/seCLIP_inputs/INV_B.IN.umi.r1TrTr.sorted.STARUnmapped.out.sorted.STARAligned.outSo.rmDupSo.bam
+      peak_clusters:
+        class: File
+        path: /home/centos/seCLIP_inputs/INV_B.IP.umi.r1TrTr.sorted.STARUnmapped.out.sorted.STARAligned.outSo.rmDupSo.peakClusters.bed
+

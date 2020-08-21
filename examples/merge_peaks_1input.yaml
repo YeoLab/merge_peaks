@@ -1,0 +1,25 @@
+#!/usr/bin/env eCLIP_full_IDR_pipeline_1input_scatter_singleNode
+
+species: hg19
+samples:
+  - 
+    - name: "rep1"
+      ip_bam: 
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF994WPX.r2.bam
+      input_bam:
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF590UCY.r2.bam
+      peak_clusters:
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF639MYI.bed6
+    - name: "rep2"
+      ip_bam: 
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF154BQS.r2.bam
+      input_bam:
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF590UCY.r2.bam
+      peak_clusters:
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF664WCU.bed6

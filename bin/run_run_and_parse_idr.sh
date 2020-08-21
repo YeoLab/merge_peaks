@@ -1,1 +1,0 @@
-../development/jobs/run_run_and_parse_idr.sh
