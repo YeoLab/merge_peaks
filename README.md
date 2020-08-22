@@ -1,32 +1,35 @@
 # merge_peaks
 CWL-defined pipeline for using IDR to produce a set of peaks given two replicate eCLIP peaks
 
-# Requires:
+# Tested with:
 
-- perl=5.10.1 (untested with 5.22 but should work although not guaranteed to be identical to ENCODE outputs)
+Perl scripts:
+- perl=5.10.1
     - Statistics::Basic
     - Statistics::Distributions
     - Statistics::R
+IDR:
 - IDR=2.0.2
-- python=3.4.5
-    - numpy=1.11
-    - pandas=0.20
-    - scipy=0.18
-    - setuptools=27.2
-    - matplotlib=2.0
+    - python=3.4
+        - numpy=1.11.3
+        - scipy=0.13.0
+Other:
 - cwl=1.0
 
 # Installation:
-- (For YEOLAB: ```module load eclipidrmergepeaks/0.0.5```)
+- (For YEOLAB: ```module load eclipidrmergepeaks/0.1.0```)
 
 ##### For all others:
 - run and source the ```source create_environment.sh``` bash script
 - install perlbrew: https://perlbrew.pl/ (skip if you want to use your system perl)
-- run and source the ```source run_perlbrew_perl5.10.1.sh``` bash script (skip if you want to use your system perl)
 - install perl modules:
     - ```cpan install Statistics::Basic```
     - ```cpan install Statistics::Distributions```
     - ```cpan install Statistics::R```
+- install IDR
+    - [```docker pull brianyee/idr:2.0.2```](https://hub.docker.com/repository/docker/brianyee/idr)
+- install CWL
+    - [```pip install cwl```](https://pypi.org/project/cwltool/1.0.20160325210917/)
 
 # Outline of workflow:
 - Normalize CLIP BAM over INPUT for each replicate (overlap_peakfi_with_bam_PE.cwl)
@@ -39,60 +42,73 @@ CWL-defined pipeline for using IDR to produce a set of peaks given two replicate
 - Identifies reproducible peaks within IDR regions (get_reproducing_peaks.cwl)
 
 # Usage:
-(see the example/204_RBFOX2.yaml manifest file for a full example). Below is a description of all fields
+(see the examples/merge_peaks_1input.yaml or examples/merge_peaks_2inputs.yaml manifest file for a full example). Below is a description of all fields
 required to be filled out in the manifest file:
 
-BAM file containing the merged-barcode (read 2 only) PCR-deduped CLIP reads mapping to the genome for Replicate 1.
+First, use the [example template](https://github.com/YeoLab/merge_peaks/tree/master/examples) to fill out the names and paths pertaining to your samples. The shebang "#!" line will depend on your experimental setup (either 2 replicates with 2 corresponding inputs, or 2 replicates normalized over 1 input). 
+
+This should match what was used to call [CLIPper](http://github.com/yeolab/clipper) peaks.
 ```
-rep1_clip_bam_file:
-  class: File
-  path: 204_01_RBFOX2.merged.r2.bam
+species: hg19
+```
+
+BAM file containing the merged-barcode (read 2 only) PCR-deduped CLIP reads mapping to the genome for Replicate 1. Replace "rep1" with a unique ID for each rep1.
+```
+    - name: "rep1"
+      ip_bam: 
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF994WPX.r2.bam
 ```
 
 BAM file containing the merged-barcode (read 2 only) PCR-deduped INPUT reads mapping to the genome for Replicate 1.
 ```
-rep1_input_bam_file:
-  class: File
-  path: RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+      input_bam:
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF590UCY.r2.bam
 ```
 
-BED file containing the called peak clusters for Replicate 1 <b>Output from either CLIPPER or input-normed peaks</b>. This pipeline will perform input norm internally for you.
+BED file containing the called peak clusters for Replicate 1 <b>Output from either CLIPPER or input-normed peaks</b>. This pipeline will perform input norm internally for you, so it won't really matter which file you use.
 ```
-rep1_peaks_bed_file:
-  class: File
-  path: 204_01_RBFOX2.merged.r2.peaks.bed
+      peak_clusters:
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF639MYI.bed6
 ```
 
-BAM file containing the merged-barcode (read 2 only) PCR-deduped CLIP reads mapping to the genome for Replicate 2.
+BAM file containing the merged-barcode (read 2 only) PCR-deduped CLIP reads mapping to the genome for Replicate 2. Replace "rep2" with a unique ID for each rep2.
 ```
-rep2_clip_bam_file:
-  class: File
-  path: 204_02_RBFOX2.merged.r2.bam
+    - name: "rep2"
+      ip_bam: 
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF154BQS.r2.bam
 ```
 
 BAM file containing the merged-barcode (read 2 only) PCR-deduped INPUT reads mapping to the genome for Replicate 2.
 ```
-rep2_input_bam_file:
-  class: File
-  path: RBFOX2-204-INPUT_S2_R1.unassigned.adapterTrim.round2.rmRep.rmDup.sorted.r2.bam
+      input_bam:
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF590UCY.r2.bam
 ```
 
 BED file containing the called peak clusters for Replicate 2 <b>Output from CLIPPER or input-normed peaks</b>. This pipeline will perform input norm internally for you.
 ```
-rep2_peaks_bed_file:
-  class: File
-  path: 204_02_RBFOX2.merged.r2.peaks.bed
+      peak_clusters:
+        class: File
+        path: /home/centos/peCLIP_inputs/ENCFF664WCU.bed6
 ```
 
-```
 ### FINAL OUTPUTS
-merged_peaks_custombed: 204.01v02.IDR.out.0102merged.bed
-merged_peaks_bed: 204.01v02.IDR.out.0102merged.custombed
 
+Merged reproducible peaks are reported as: 
+
+```bash
+rep1.vs.rep2.bed
 ```
+
+Where ```rep1``` and ```rep2``` are the user-defined names in the manifest.
+
 # To run the workflow:
 - Ensure that the yaml file is accessible and that wf_get_reproducible_eclip_peaks.cwl is in your $PATH.
-- Type: ```./204_RBFOX2.yaml```
+- Type: ```./merge_peaks_2inputs.yaml```
 
 # Outputs
 - merged_peaks_bed: this is the BED6 file containing reproducible peaks as
