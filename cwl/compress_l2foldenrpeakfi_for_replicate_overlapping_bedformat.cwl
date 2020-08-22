@@ -10,7 +10,7 @@ requirements:
 
 hints:
   - class: DockerRequirement
-    dockerPull: brianyee/merge_peaks:0.0.6
+    dockerPull: brianyee/merge_peaks:0.1.0
 
 baseCommand: [compress_l2foldenrpeakfi_for_replicate_overlapping_bedformat.pl]
 

@@ -9,7 +9,7 @@ requirements:
 
 hints:
   - class: DockerRequirement
-    dockerPull: brianyee/merge_peaks:0.0.6
+    dockerPull: brianyee/merge_peaks:0.1.0
     
 baseCommand: [ max_over_min.sh ]
 
