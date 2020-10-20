@@ -1,35 +1,23 @@
 # merge_peaks
 CWL-defined pipeline for using IDR to produce a set of peaks given two replicate eCLIP peaks
 
-# Tested with:
-
-Perl scripts:
-- perl=5.10.1
-    - Statistics::Basic
-    - Statistics::Distributions
-    - Statistics::R
-IDR:
-- IDR=2.0.2
-    - python=3.4
-        - numpy=1.11.3
-        - scipy=0.13.0
-Other:
-- cwl=1.0
-
 # Installation:
 - (For YEOLAB: ```module load eclipidrmergepeaks/0.1.0```)
 
 ##### For all others:
-- run and source the ```source create_environment.sh``` bash script
-- install perlbrew: https://perlbrew.pl/ (skip if you want to use your system perl)
-- install perl modules:
-    - ```cpan install Statistics::Basic```
-    - ```cpan install Statistics::Distributions```
-    - ```cpan install Statistics::R```
-- install IDR
-    - [```docker pull brianyee/idr:2.0.2```](https://hub.docker.com/repository/docker/brianyee/idr)
 - install CWL
     - [```pip install cwl```](https://pypi.org/project/cwltool/1.0.20160325210917/)
+- If Docker is installed, CWL will attempt to pull the following software versions automatically:
+    - [```docker pull brianyee/merge_peaks:0.1.0```](https://hub.docker.com/repository/docker/brianyee/merge_peaks)
+    - [```docker pull brianyee/idr:2.0.2```](https://hub.docker.com/repository/docker/brianyee/idr)
+    - [```docker pull brianyee/clipper:5d865bb```](https://hub.docker.com/repository/docker/brianyee/clipper)
+- (alternatively if Docker is not installed) install packages conventionally:
+    - You will need Perl (5.10.1+) with the following packages (Recommended: https://perlbrew.pl):
+    	- ```cpan install Statistics::Basic```
+    	- ```cpan install Statistics::Distributions```
+    	- ```cpan install Statistics::R```
+    - In addition, you will need [IDR 2.0.2](https://github.com/nboley/idr/archive/2.0.2.zip) and [Clipper](https://github.com/YeoLab/clipper/archive/2.1.0.tar.gz)
+
 
 # Outline of workflow:
 - Normalize CLIP BAM over INPUT for each replicate (overlap_peakfi_with_bam_PE.cwl)

@@ -81,23 +81,23 @@ sub parse_file {
             }
         }
 	
-	if (scalar(keys %overlapping_idrs) > 0) {
-	    
-	    if (scalar(keys %overlapping_idrs) > 1) {
-		print STDERR "This should NEVER be hit - peak overlaps with more than one IDR region $line\n".join("\t",keys %overlapping_idrs)."\n---\n";
-	    }
+        if (scalar(keys %overlapping_idrs) > 0) {
 
-	    my @sorted_idr = keys %overlapping_idrs;
-	    my $overlapping_idrpeak = $sorted_idr[0];	    
-	    my ($ichr,$ipos,$istr,$iidr) = split(/\:/,$overlapping_idrpeak);
+            if (scalar(keys %overlapping_idrs) > 1) {
+                print STDERR "This should NEVER be hit - peak overlaps with more than one IDR region $line\n".join("\t",keys %overlapping_idrs)."\n---\n";
+            }
 
-	    if ($iidr >= $idr_cutoffs{$idr_cutoff}) {
-		$idrregion2peaks{$overlapping_idrpeak}{$chr.":".$start."-".$stop.":".$str} = 1;
-	    }
-	} else {
-	    # peak not in IDR list
+            my @sorted_idr = keys %overlapping_idrs;
+            my $overlapping_idrpeak = $sorted_idr[0];
+            my ($ichr,$ipos,$istr,$iidr) = split(/\:/,$overlapping_idrpeak);
 
-	}
+            if ($iidr >= $idr_cutoffs{$idr_cutoff}) {
+                $idrregion2peaks{$overlapping_idrpeak}{$chr.":".$start."-".$stop.":".$str} = 1;
+            }
+        } else {
+            # peak not in IDR list
+
+        }
     }
     close(F);
 }

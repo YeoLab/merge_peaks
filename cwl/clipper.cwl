@@ -12,7 +12,7 @@ requirements:
 
 hints:
   - class: DockerRequirement
-    dockerPull: brianyee/clipper:997fe25532a5bdcf5957f2a467ca283bbd550303
+    dockerPull: brianyee/clipper:5d865bb
     
 baseCommand: [clipper]
 
@@ -23,7 +23,7 @@ inputs:
     inputBinding:
       position: 0
       prefix: --species
-    doc: "species: one of ce10 ce11 dm3 hg19 GRCh38 mm9 mm10"
+    doc: "species: one of ce10 ce11 dm3 hg19 GRCh38 mm9 mm10 GRCh38_pU6 GRCh38_v29 GRCh38_v29e hg19_VSV"
 
   bam:
     type: File
@@ -36,13 +36,6 @@ inputs:
     inputBinding:
      position: 8
      prefix: --gene
-
-  savepickle:
-    type: boolean
-    default: true
-    inputBinding:
-      position: 9
-      prefix: --save-pickle
 
   outfile:
     type: string
@@ -61,18 +54,7 @@ inputs:
         }
 
 outputs:
-  output_tsv:
-    type: File
-    outputBinding:
-      glob: |
-        ${
-          if (inputs.outfile == "") {
-            return inputs.bam.nameroot + ".peakClusters.bed.tsv";
-          }
-          else {
-            return inputs.outfile + ".tsv";
-          }
-        }
+
   output_bed:
     type: File
     outputBinding:
@@ -83,18 +65,6 @@ outputs:
           }
           else {
             return inputs.outfile;
-          }
-        }
-  output_pickle:
-    type: File
-    outputBinding:
-      glob: |
-        ${
-          if (inputs.outfile == "") {
-            return inputs.bam.nameroot + ".peakClusters.bed.pickle";
-          }
-          else {
-            return inputs.outfile + ".pickle";
           }
         }
 

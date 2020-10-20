@@ -81,9 +81,7 @@ steps:
       bam: index_split1/alignments_with_index
       species: species
     out:
-      - output_tsv
       - output_bed
-      - output_pickle
     
   step_clipper_split2:
     run: clipper.cwl
@@ -91,9 +89,7 @@ steps:
       bam: index_split2/alignments_with_index
       species: species
     out:
-      - output_tsv
       - output_bed
-      - output_pickle
 
   step_reproducible_peaks_num:
     run: wf_get_reproducible_eclip_peaks.cwl
