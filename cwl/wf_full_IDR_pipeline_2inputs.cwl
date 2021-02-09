@@ -64,6 +64,11 @@ inputs:
     type: string
     default: "rep2_split_reproducible_peaks.custombed"
 
+  species: 
+    type: string
+  chrom_sizes:
+    type: File
+    
 outputs:
 
 

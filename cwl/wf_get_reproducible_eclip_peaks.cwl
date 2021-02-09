@@ -35,47 +35,11 @@ inputs:
   merged_peaks_custombed:
     type: string
 
-  #
-  # outputPrefixRep1:
-  #   type: string
-  #   default: "01"
-  # outputPrefixRep2:
-  #   type: string
-  #   default: "02"
-
-  #
-  # inputNormSuffixRep1:
-  #   type: string
-  #   default: "idrpeaks_inputnormed_01"
-  # inputNormSuffixRep2:
-  #   type: string
-  #   default: "idrpeaks_inputnormed_02"
-
-  #
-  # idrOutputFilename:
-  #   type: string
-  #   default: "01v02.idr.out"
-  # idrOutputBedFilename:
-  #   type: string
-  #   default: "01v02.idr.out.bed"
-
-  # POST IDR PROCESSING
-  # idrInputNormRep1BedFilename:
-  #   type: string
-  #   default: "01v02.IDR.out.idrpeaks_inputnormed.01.bed"
-  # idrInputNormRep2BedFilename:
-  #   type: string
-  #   default: "01v02.IDR.out.idrpeaks_inputnormed.02.bed"
-
-  # MERGE PEAKS
-  # rep1ReproducingPeaksFullOutputFilename:
-  #   type: string
-  #   default: "01v02.IDR.out.0102merged.01.full"
-  # rep2ReproducingPeaksFullOutputFilename:
-  #   type: string
-  #   default: "01v02.IDR.out.0102merged.02.full"
-
-
+  species: 
+    type: string
+    
+  chrom_sizes:
+    type: File
 
 
 outputs:
@@ -181,10 +145,17 @@ outputs:
     type: File
     outputSource: get_reproducing_peaks/output_custombed_file
   reproducing_peaks_count:
-     type: int
-     outputSource: reproducible_peaks_file_to_int/output
-
-
+    type: int
+    outputSource: reproducible_peaks_file_to_int/output
+  
+  output_narrowpeak:
+    type: File
+    outputSource: step_bed_to_narrowpeak/output_narrowpeak
+  output_bigbed:
+    type: File
+    outputSource: step_bed_to_bigbed/output_bigbed
+    
+    
 steps:
 
   rep1_input_norm_and_entropy:
@@ -332,3 +303,23 @@ steps:
       file: count_reproducing_peaks/linescount
     out:
       - output
+      
+  step_bed_to_narrowpeak:
+    run: bed_to_narrowpeak.cwl
+    in:
+      input_bed: get_reproducing_peaks/output_bed_file
+      species: species
+    out: [output_narrowpeak]
+    
+  step_fix_bed_for_bigbed_conversion:
+    run: fix_bed_for_bigbed_conversion.cwl
+    in:
+      input_bed: step_blacklist_remove/output_blacklist_removed_bed
+    out: [output_fixed_bed]
+    
+  step_bed_to_bigbed:
+    run: bed_to_bigbed.cwl
+    in:
+      input_bed: step_fix_bed_for_bigbed_conversion/output_fixed_bed
+      chrom_sizes: chrom_sizes
+    out: [output_bigbed]

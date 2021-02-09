@@ -1,5 +1,0 @@
-#!/usr/bin/env file2int.cwl
-
-file: 
-  class: File
-  path: inputs/reproducing_peaks_count1.txt

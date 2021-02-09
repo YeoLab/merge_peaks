@@ -45,7 +45,9 @@ inputs:
   merged_peaks_custombed:
     type: string
 
-
+  chrom_sizes:
+    type: File
+    
   ## DEFAULT FILENAMES ##
   split_peaks_bed:
     type: string
@@ -154,10 +156,17 @@ outputs:
   reproducible_peaks:
     type: File
     outputSource: step_get_true_reproducing_peaks/merged_peaks_bed_file
+  reproducible_peaks_narrowpeak:
+    type: File
+    outputSource: step_get_true_reproducing_peaks/output_narrowpeak
+  reproducible_peaks_bigbed:
+    type: File
+    outputSource: step_get_true_reproducing_peaks/output_bigbed
+
   rescue_ratio:
     type: File
     outputSource: step_rescue_ratio/ratio
-
+  
 steps:
 
   step_merge_clip_bams:
@@ -190,7 +199,10 @@ steps:
 
       merged_peaks_bed: merged_peaks_bed
       merged_peaks_custombed: merged_peaks_custombed
-
+      
+      chrom_sizes: chrom_sizes
+      species: species
+      
     out:
       - rep1_clip_read_num
       - rep2_clip_read_num
@@ -224,7 +236,9 @@ steps:
       - merged_peaks_bed_file
       - merged_peaks_custombed_file
       - reproducing_peaks_count
-
+      - output_narrowpeak
+      - output_bigbed
+      
   step_split_merged_bam_and_idr:
     run: wf_split_self_and_idr.cwl
     in:
