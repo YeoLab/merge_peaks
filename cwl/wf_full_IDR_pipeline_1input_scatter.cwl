@@ -20,7 +20,8 @@ inputs:
 
   species:
     type: string
-
+  chrom_sizes:
+    type: File
   samples:
     type:
       type: array
@@ -163,7 +164,13 @@ outputs:
   reproducible_peaks:
     type: File[]
     outputSource: wf_full_IDR_pipeline_1input_sample/reproducible_peaks
-
+  reproducible_peaks_bigbed:
+    type: File[]
+    outputSource: wf_full_IDR_pipeline_1input_sample/reproducible_peaks_bigbed
+  reproducible_peaks_narrowpeak:
+    type: File[]
+    outputSource: wf_full_IDR_pipeline_1input_sample/reproducible_peaks_narrowpeak
+    
 steps:
 
   wf_full_IDR_pipeline_1input_sample:
@@ -171,6 +178,7 @@ steps:
     scatter: sample
     in:
       sample: samples
+      chrom_sizes: chrom_sizes
       species: species
       split_peaks_bed: split_peaks_bed
       split_peaks_custombed: split_peaks_custombed
@@ -204,6 +212,8 @@ steps:
       rep1_reproducing_peaks_full,
       rep2_reproducing_peaks_full,
       reproducible_peaks,
+      reproducible_peaks_bigbed,
+      reproducible_peaks_narrowpeak,
       rescue_ratio,
       self_consistency_ratio
     ]

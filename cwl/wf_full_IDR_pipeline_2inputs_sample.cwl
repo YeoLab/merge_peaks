@@ -33,7 +33,8 @@ inputs:
 
   species:
     type: string
-
+  chrom_sizes:
+    type: File
   split_peaks_bed:
     type: string
     default: "temp_split_IDR_peaks.bed"
@@ -154,6 +155,12 @@ outputs:
     type: File
     outputSource:
       wf_full_IDR_pipeline_2inputs/reproducible_peaks
+  reproducible_peaks_narrowpeak:
+    type: File
+    outputSource: wf_full_IDR_pipeline_2inputs/reproducible_peaks_narrowpeak
+  reproducible_peaks_bigbed:
+    type: File
+    outputSource: wf_full_IDR_pipeline_2inputs/reproducible_peaks_bigbed
   rescue_ratio:
     type: File
     outputSource:
@@ -197,7 +204,7 @@ steps:
       rep2_peaks_bed_file: step_parse_sample_IDR/rep2_peak_clusters
       
       species: species
-
+      chrom_sizes: chrom_sizes
       merged_peaks_bed: step_parse_sample_IDR/reproducible_peaks
       merged_peaks_custombed: step_parse_sample_IDR/reproducible_peaks_custombed
 
@@ -234,6 +241,8 @@ steps:
       rep1_reproducing_peaks_full,
       rep2_reproducing_peaks_full,
       reproducible_peaks,
+      reproducible_peaks_bigbed,
+      reproducible_peaks_narrowpeak,
       rescue_ratio,
       self_consistency_ratio
     ]

@@ -34,7 +34,9 @@ inputs:
     
   species:
     type: string
-
+  chrom_sizes:
+    type: File
+    
   ### DEFAULTS (optional) ###
 
   rep1_merged_peaks_bed:
@@ -70,6 +72,7 @@ steps:
       clip_bam: rep1_clip_bam_file
       input_bam: rep1_input_bam_file
       species: species
+      chrom_sizes: chrom_sizes
       merged_peaks_bed: rep1_merged_peaks_bed
       merged_peaks_custombed: rep1_merged_peaks_custombed
     out:
@@ -82,6 +85,7 @@ steps:
       clip_bam: rep2_clip_bam_file
       input_bam: rep2_input_bam_file
       species: species
+      chrom_sizes: chrom_sizes
       merged_peaks_bed: rep2_merged_peaks_bed
       merged_peaks_custombed: rep2_merged_peaks_custombed
     out:

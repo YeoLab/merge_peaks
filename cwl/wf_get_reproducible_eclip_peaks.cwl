@@ -303,18 +303,24 @@ steps:
       file: count_reproducing_peaks/linescount
     out:
       - output
-      
+  
+  step_sort_bed:
+    run: sort-bed.cwl
+    in:
+      unsorted_bed: get_reproducing_peaks/output_bed_file
+    out: [sorted_bed]
+    
   step_bed_to_narrowpeak:
     run: bed_to_narrowpeak.cwl
     in:
-      input_bed: get_reproducing_peaks/output_bed_file
+      input_bed: step_sort_bed/sorted_bed
       species: species
     out: [output_narrowpeak]
     
   step_fix_bed_for_bigbed_conversion:
     run: fix_bed_for_bigbed_conversion.cwl
     in:
-      input_bed: step_blacklist_remove/output_blacklist_removed_bed
+      input_bed: step_sort_bed/sorted_bed
     out: [output_fixed_bed]
     
   step_bed_to_bigbed:

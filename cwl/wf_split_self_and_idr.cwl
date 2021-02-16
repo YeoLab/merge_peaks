@@ -22,7 +22,8 @@ inputs:
     type: File
   species:
     type: string
-
+  chrom_sizes:
+    type: File
   merged_peaks_bed:
     type: string
   merged_peaks_custombed:
@@ -94,6 +95,9 @@ steps:
   step_reproducible_peaks_num:
     run: wf_get_reproducible_eclip_peaks.cwl
     in:
+      species: species
+      chrom_sizes: chrom_sizes
+      
       rep1_clip_bam_file: step_bam_split/split1
       rep2_clip_bam_file: step_bam_split/split2
 
@@ -107,8 +111,10 @@ steps:
       merged_peaks_custombed: merged_peaks_custombed
     out:
       - reproducing_peaks_count
-      - rep1_clip_read_num # DEBUG
-      - rep1_input_read_num # DEBUG
-      - rep2_clip_read_num # DEBUG
-      - rep2_input_read_num # DEBUG
-      - merged_peaks_bed_file # DEBUG  
+      - output_narrowpeak
+      - output_bigbed
+      - rep1_clip_read_num
+      - rep1_input_read_num
+      - rep2_clip_read_num
+      - rep2_input_read_num
+      - merged_peaks_bed_file  

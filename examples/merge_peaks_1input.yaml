@@ -23,3 +23,6 @@ samples:
       peak_clusters:
         class: File
         path: /home/centos/peCLIP_inputs/ENCFF664WCU.bed6
+chrom_sizes:
+  class: File
+  path: /home/centos/refs/hg19.chrom.sizes

@@ -2,7 +2,7 @@
 
 doc: |
   The main workflow that:
-   produces two reproducible peaks via IDR given two eCLIP samples (1 input, 1 IP each).
+   produces two reproducible peaks via IDR given two eCLIP samples (1 input total for both reps, 1 IP each replicate).
    runs the 'rescue ratio' statistic
    runs the 'consistency ratio' statistic
 
@@ -63,6 +63,9 @@ inputs:
     type: string
     default: "rep2_split_reproducible_peaks.custombed"
 
+  chrom_sizes:
+    type: File
+    
 outputs:
 
 
@@ -163,6 +166,12 @@ outputs:
   reproducible_peaks:
     type: File
     outputSource: wf_rescue_ratio_1input/reproducible_peaks
+  reproducible_peaks_narrowpeak:
+    type: File
+    outputSource: wf_rescue_ratio_1input/reproducible_peaks_narrowpeak
+  reproducible_peaks_bigbed:
+    type: File
+    outputSource: wf_rescue_ratio_1input/reproducible_peaks_bigbed
   rescue_ratio:
     type: File
     outputSource: wf_rescue_ratio_1input/rescue_ratio
@@ -225,6 +234,7 @@ steps:
       
       input_bam_file: input_bam_file
       species: species
+      chrom_sizes: chrom_sizes
       merged_peaks_bed: merged_peaks_bed
       merged_peaks_custombed: merged_peaks_custombed
       split_peaks_bed: split_peaks_bed
@@ -255,6 +265,8 @@ steps:
       rep1_reproducing_peaks_full,
       rep2_reproducing_peaks_full,
       reproducible_peaks,
+      reproducible_peaks_narrowpeak,
+      reproducible_peaks_bigbed,
       rescue_ratio
     ]
   wf_self_consistency_ratio:
@@ -269,6 +281,7 @@ steps:
       rep2_input_bam_file: input_bam_file
       
       species: species
+      chrom_sizes: chrom_sizes
       rep1_merged_peaks_bed: rep1_merged_peaks_bed_from_cc
       rep1_merged_peaks_custombed: rep1_merged_peaks_custombed_from_cc
       rep2_merged_peaks_bed: rep2_merged_peaks_bed_from_cc

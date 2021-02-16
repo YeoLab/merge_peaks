@@ -23,4 +23,6 @@ samples:
       peak_clusters:
         class: File
         path: /home/centos/seCLIP_inputs/INV_B.IP.umi.r1TrTr.sorted.STARUnmapped.out.sorted.STARAligned.outSo.rmDupSo.peakClusters.bed
-
+chrom_sizes:
+  class: File
+  path: /home/centos/refs/hg19.chrom.sizes

@@ -64,8 +64,6 @@ inputs:
     type: string
     default: "rep2_split_reproducible_peaks.custombed"
 
-  species: 
-    type: string
   chrom_sizes:
     type: File
     
@@ -169,6 +167,12 @@ outputs:
   reproducible_peaks:
     type: File
     outputSource: wf_rescue_ratio_2inputs/reproducible_peaks
+  reproducible_peaks_narrowpeak:
+    type: File
+    outputSource: wf_rescue_ratio_2inputs/reproducible_peaks_narrowpeak
+  reproducible_peaks_bigbed:
+    type: File
+    outputSource: wf_rescue_ratio_2inputs/reproducible_peaks_bigbed
   rescue_ratio:
     type: File
     outputSource: wf_rescue_ratio_2inputs/rescue_ratio
@@ -232,6 +236,7 @@ steps:
       rep2_peaks_bed_file: rep2_peaks_bed_file
       
       species: species
+      chrom_sizes: chrom_sizes
       merged_peaks_bed: merged_peaks_bed
       merged_peaks_custombed: merged_peaks_custombed
       split_peaks_bed: split_peaks_bed
@@ -262,6 +267,8 @@ steps:
       rep1_reproducing_peaks_full,
       rep2_reproducing_peaks_full,
       reproducible_peaks,
+      reproducible_peaks_narrowpeak,
+      reproducible_peaks_bigbed,
       rescue_ratio
     ]
   wf_self_consistency_ratio:
@@ -274,6 +281,7 @@ steps:
       rep2_clip_bam_file: rep2_clip_bam_file
       rep2_input_bam_file: rep2_input_bam_file
       species: species
+      chrom_sizes: chrom_sizes
       rep1_merged_peaks_bed: rep1_merged_peaks_bed_from_cc
       rep1_merged_peaks_custombed: rep1_merged_peaks_custombed_from_cc
       rep2_merged_peaks_bed: rep2_merged_peaks_bed_from_cc

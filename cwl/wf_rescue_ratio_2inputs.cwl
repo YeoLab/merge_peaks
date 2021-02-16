@@ -245,6 +245,7 @@ steps:
       clip_bam: step_merge_clip_bams/merged_bam_file
       input_bam: step_merge_input_bams/merged_bam_file
       species: species
+      chrom_sizes: chrom_sizes
       merged_peaks_bed: split_peaks_bed
       merged_peaks_custombed: split_peaks_custombed
 
