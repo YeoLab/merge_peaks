@@ -17,7 +17,7 @@ set -o pipefail
 
 
 
-CWLRUNNER=cwltorq # either: cwltool cwltoil or cwltorq
+CWLRUNNER=cwltool # either: cwltool cwltoil or cwltorq
 WORKFLOW=wf_get_reproducible_eclip_peaks # the prefix of the workflow cwl (without .cwl extension)
 
 PIPELINE=IDR  # workflow prefix
@@ -153,7 +153,7 @@ echo
 
 if [ $CWLRUNNER == cwltool ]
 then
-  cwltool --debug \
+  cwltool --debug --no-container --preserve-entire-environment \
     --outdir ${OUTDIR} \
     --cachedir ${INTERM} \
     ${WORKFLOW_HOME}/cwl/${WORKFLOW}.cwl \

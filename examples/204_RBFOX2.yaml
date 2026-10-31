@@ -29,3 +29,8 @@ rep2_peaks_bed_file:
 
 merged_peaks_bed: 204_RBFOX2_reproducible_peaks.bed
 merged_peaks_custombed: 204_RBFOX2_reproducible_peaks.custombed
+
+species: hg19
+chrom_sizes:
+  class: File
+  path: /tscc/projects/ps-yeolab4/genomes/hg19/hg19.chrom.sizes
