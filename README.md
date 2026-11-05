@@ -2,7 +2,7 @@
 CWL-defined pipeline for using IDR to produce a set of peaks given two replicate eCLIP peaks
 
 # Installation:
-- (For YEOLAB: ```module load eclipidrmergepeaks/0.1.0```)
+- (For YEOLAB: ```module load eclipidrmergepeaks```)
 
 ##### For all others:
 - install CWL
